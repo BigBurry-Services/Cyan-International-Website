@@ -482,15 +482,17 @@ header.scrolled nav ul li a {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller cards, auto-fill prevents stretching */
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .product-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    border-radius: 35px;
+    border-radius: 20px;
+    overflow: hidden; /* Key fix for overflow */
     transition: var(--transition-smooth);
 }
 
@@ -518,9 +520,9 @@ header.scrolled nav ul li a {
 }
 
 .product-img {
-    border-radius: 30px;
-    margin: 15px;
-    height: 240px;
+    border-radius: 15px;
+    margin: 10px;
+    height: 180px; /* Smaller image height */
     overflow: hidden;
     position: relative;
     background: #f0f4f8;
@@ -993,7 +995,8 @@ footer {
     }
     
     .about-text {
-        padding-right: 0;
+        padding: 0 20px; /* Added padding for mobile readability */
+        padding-right: 20px;
         margin-bottom: 30px;
     }
 

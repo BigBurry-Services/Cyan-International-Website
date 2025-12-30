@@ -27,17 +27,43 @@ if (!localStorage.getItem("ammachies_products")) {
   localStorage.setItem("ammachies_products", JSON.stringify(initialProducts));
 }
 
-// Initial Categories
-const initialCategories = ["Frozen", "Snacks", "Traditional"];
-if (!localStorage.getItem("ammachies_categories")) {
-  localStorage.setItem(
-    "ammachies_categories",
-    JSON.stringify(initialCategories)
-  );
+// Initial Categories (Migrated to Objects)
+const initialCategories = [
+  {
+    name: "Frozen",
+    img: "https://images.unsplash.com/photo-1626132646529-500637532537?q=80&w=1936",
+  },
+  {
+    name: "Snacks",
+    img: "https://www.angroos.com/wp-content/uploads/2023/03/second-image-scaled.jpg",
+  },
+  {
+    name: "Traditional",
+    img: "https://img.freepik.com/premium-photo/group-south-indian-food-like-masala-dosa-uttapam-idli-idly-wada-vada-sambar-appam-semolina-halwa-upma-served-banana-leaf-with-colourful-chutneys-selective-focus_466689-25679.jpg",
+  },
+];
+
+let categories = JSON.parse(localStorage.getItem("ammachies_categories"));
+
+// Data Migration Handler: Convert string array to object array if needed
+if (
+  !categories ||
+  (categories.length > 0 && typeof categories[0] === "string")
+) {
+  console.log("Migrating categories to object structure...");
+  if (!categories) {
+    categories = initialCategories;
+  } else {
+    // Convert existing strings to objects with placeholder
+    categories = categories.map((cat) => ({
+      name: cat,
+      img: "https://via.placeholder.com/300?text=" + cat,
+    }));
+  }
+  localStorage.setItem("ammachies_categories", JSON.stringify(categories));
 }
 
 let products = JSON.parse(localStorage.getItem("ammachies_products"));
-let categories = JSON.parse(localStorage.getItem("ammachies_categories"));
 
 const tbody = document.getElementById("product-tbody");
 const modal = document.getElementById("product-modal");
@@ -105,17 +131,24 @@ document.getElementById("add-product-btn").addEventListener("click", () => {
 });
 
 // Category Management Logic
+// Category Management Logic
 const categoryTbody = document.getElementById("category-tbody");
 const newCategoryInput = document.getElementById("new-category-input");
+const newCategoryImg = document.getElementById("new-category-img"); // New Element
+const addCategoryBtn = document.getElementById("add-category-btn"); // Get reference
+
+let editingCategoryName = null;
 
 function renderCategories() {
   categoryTbody.innerHTML = "";
   categories.forEach((cat) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-            <td>${cat}</td>
+            <td><img src="${cat.img}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;"></td>
+            <td>${cat.name}</td>
             <td>
-                <button class="btn btn-accent btn-small" onclick="deleteCategory('${cat}')">Delete</button>
+                <button class="btn btn-primary btn-small" onclick="editCategory('${cat.name}')">Edit</button>
+                <button class="btn btn-accent btn-small" onclick="deleteCategory('${cat.name}')">Delete</button>
             </td>
         `;
     categoryTbody.appendChild(tr);
@@ -127,8 +160,8 @@ function updateCategoryDropdown() {
   select.innerHTML = "";
   categories.forEach((cat) => {
     const option = document.createElement("option");
-    option.value = cat;
-    option.innerText = cat;
+    option.value = cat.name;
+    option.innerText = cat.name;
     select.appendChild(option);
   });
 }
@@ -136,22 +169,33 @@ function updateCategoryDropdown() {
 function saveCategories() {
   localStorage.setItem("ammachies_categories", JSON.stringify(categories));
   renderCategories();
-  // Also update filter buttons if needed (reloading logic might be needed for full dynamic filters)
 }
 
-window.deleteCategory = (cat) => {
+window.deleteCategory = (catName) => {
   // Safety Check: Check if any product uses this category
-  const productsInCat = products.filter((p) => p.category === cat);
+  const productsInCat = products.filter((p) => p.category === catName);
   if (productsInCat.length > 0) {
     alert(
-      `Cannot delete category "${cat}" because it contains ${productsInCat.length} product(s). Please delete these products first.`
+      `Cannot delete category "${catName}" because it contains ${productsInCat.length} product(s). Please delete these products first.`
     );
     return;
   }
 
-  if (confirm(`Are you sure you want to delete category "${cat}"?`)) {
-    categories = categories.filter((c) => c !== cat);
+  if (confirm(`Are you sure you want to delete category "${catName}"?`)) {
+    categories = categories.filter((c) => c.name !== catName);
     saveCategories();
+    updateCategoryDropdown();
+  }
+};
+
+window.editCategory = (catName) => {
+  const cat = categories.find((c) => c.name === catName);
+  if (cat) {
+    newCategoryInput.value = cat.name;
+    newCategoryImg.value = cat.img;
+    editingCategoryName = cat.name;
+    addCategoryBtn.innerText = "Update Category";
+    // Optional: change button style
   }
 };
 
@@ -166,16 +210,62 @@ document
   .getElementById("close-category-modal")
   .addEventListener("click", () => {
     categoryModal.style.display = "none";
+    // Reset form on close
+    newCategoryInput.value = "";
+    newCategoryImg.value = "";
+    editingCategoryName = null;
+    addCategoryBtn.innerText = "Add Category";
   });
 
 document.getElementById("add-category-btn").addEventListener("click", () => {
-  const newCat = newCategoryInput.value.trim();
-  if (newCat && !categories.includes(newCat)) {
-    categories.push(newCat);
-    saveCategories();
-    newCategoryInput.value = "";
-  } else if (categories.includes(newCat)) {
-    alert("Category already exists!");
+  const name = newCategoryInput.value.trim();
+  const img =
+    newCategoryImg.value.trim() ||
+    "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?q=80&w=1974"; // Default image if empty
+
+  if (!name) {
+    alert("Category name is required");
+    return;
+  }
+
+  if (editingCategoryName) {
+    // UPDATE EXISTING CATEGORY
+    const existingCat = categories.find((c) => c.name === editingCategoryName);
+    if (existingCat) {
+      existingCat.name = name;
+      existingCat.img = img;
+
+      // Update linked products
+      if (editingCategoryName !== name) {
+        products.forEach((p) => {
+          if (p.category === editingCategoryName) {
+            p.category = name;
+          }
+        });
+        saveProducts();
+      }
+
+      saveCategories();
+      updateCategoryDropdown();
+
+      // Reset UI
+      newCategoryInput.value = "";
+      newCategoryImg.value = "";
+      editingCategoryName = null;
+      addCategoryBtn.innerText = "Add Category";
+      alert("Category updated successfully!");
+    }
+  } else {
+    // ADD NEW CATEGORY
+    if (!categories.some((c) => c.name === name)) {
+      categories.push({ name, img });
+      saveCategories();
+      updateCategoryDropdown();
+      newCategoryInput.value = "";
+      newCategoryImg.value = "";
+    } else {
+      alert("Category already exists!");
+    }
   }
 });
 

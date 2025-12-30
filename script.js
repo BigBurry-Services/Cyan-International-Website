@@ -65,76 +65,83 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Dynamic Product Rendering
+  // Dynamic Product Rendering (Now CATEGORIES on Homepage)
   const productGrid = document.querySelector(".product-grid");
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const productsRaw = localStorage.getItem("ammachies_products");
-  const products = productsRaw ? JSON.parse(productsRaw) : [];
 
-  function renderProducts(filter = "all") {
+  function renderHomeCategories() {
     if (!productGrid) return;
-
     productGrid.innerHTML = "";
 
-    const filteredProducts =
-      filter === "all"
-        ? products
-        : products.filter((p) => p.category === filter);
+    // Get Categories from LocalStorage (Objects or Legacy Strings)
+    let categories =
+      JSON.parse(localStorage.getItem("ammachies_categories")) || [];
 
-    if (filteredProducts.length === 0) {
-      productGrid.innerHTML = `
-        <div class="empty-state">
-          <h3>No ${filter === "all" ? "" : filter} treasures found!</h3>
-          <p>We are currently updating this category. Please check back shortly.</p>
-        </div>
-      `;
-    } else {
-      filteredProducts.forEach((p) => {
-        const card = document.createElement("div");
-        card.className = "product-card reveal";
-        card.innerHTML = `
-                  <div class="product-img">
-                      <img src="${
-                        p.img ||
-                        "https://images.unsplash.com/photo-1590541576391-defc4331032b?q=80&w=1974"
-                      }" alt="${p.name}">
-                      <span class="category">${
-                        p.category || "Traditional"
-                      }</span>
-                  </div>
-                  <div class="product-info">
-                      <h3>${p.name}</h3>
-                      <p>${
-                        p.desc ||
-                        "Authentic Kerala delicacy crafted with tradition."
-                      }</p>
-                      <span class="weight">${p.weight || "Standard Size"}</span>
-                  </div>
-              `;
-        productGrid.appendChild(card);
-        // Re-observe for reveal animation
-        setTimeout(() => {
-          revealObserver.observe(card);
-          card.classList.add("active");
-        }, 100);
-      });
+    // Default fallback if empty (should be handled by admin.js init, but safe to have)
+    if (categories.length === 0) {
+      // Fallback for demo if LS is cleared
+      categories = ["Frozen", "Snacks", "Traditional"];
     }
-  }
 
-  // Filter Event Listeners
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // Toggle active class
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+    if (categories.length === 0) {
+      productGrid.innerHTML =
+        '<div class="empty-state">No categories found.</div>';
+      return;
+    }
 
-      const category = btn.getAttribute("data-category");
-      renderProducts(category);
+    categories.forEach((cat) => {
+      // Handle legacy string categories or new objects
+      const isObject = typeof cat === "object";
+      const catName = isObject ? cat.name : cat;
+      // Default placeholder images matching the theme
+      let defaultImg =
+        "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800";
+      if (catName === "Frozen")
+        defaultImg =
+          "https://images.unsplash.com/photo-1626132646529-500637532537?q=80&w=1936";
+      if (catName === "Snacks")
+        defaultImg =
+          "https://www.angroos.com/wp-content/uploads/2023/03/second-image-scaled.jpg";
+      if (catName === "Traditional")
+        defaultImg =
+          "https://img.freepik.com/premium-photo/group-south-indian-food-like-masala-dosa-uttapam-idli-idly-wada-vada-sambar-appam-semolina-halwa-upma-served-banana-leaf-with-colourful-chutneys-selective-focus_466689-25679.jpg";
+
+      const catImg = isObject && cat.img ? cat.img : defaultImg;
+
+      const card = document.createElement("div");
+      card.className = "product-card reveal";
+
+      // Link to products page with category filter
+      card.onclick = () => {
+        window.location.href = `products.html?category=${encodeURIComponent(
+          catName
+        )}`;
+      };
+
+      card.innerHTML = `
+            <div class="product-img-wrapper" style="height: 250px;">
+                <img src="${catImg}" alt="${catName}" loading="lazy" style="height: 100%; object-fit: cover;">
+                <div class="overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); display: flex; align-items: flex-end; padding: 20px;">
+                     <h3 style="color: white; font-size: 1.8rem; margin: 0; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">${catName}</h3>
+                </div>
+            </div>
+            <div class="product-info" style="text-align:center; padding: 15px;">
+                <p style="color: var(--primary-color); font-weight: 600; font-size: 0.9rem; margin: 0;">Explore Collection <i class="fas fa-arrow-right" style="font-size: 0.8rem; margin-left: 5px;"></i></p>
+            </div>
+        `;
+      productGrid.appendChild(card);
+
+      // Re-observe for reveal animation
+      setTimeout(() => {
+        // Assuming revealObserver is available in scope (it is defined above)
+        // But to be safe in this scope refactor:
+        card.classList.add("active");
+      }, 100);
     });
-  });
+  }
 
   // Initial render
   if (productGrid) {
-    renderProducts("all");
+    renderHomeCategories();
   }
 
   // Particle System

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ammachies</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Canvas for Particle Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <header id="navbar" class="navbar" style="background: var(--bg-white); box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Ammachies Logo" class="nav-logo">
+                </a>
+            </div>
+
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars" style="color: var(--text-dark);"></i>
+            </div>
+
+            <nav id="nav-links">
+                <ul>
+                    <li><a href="index.html" style="color: var(--text-dark);">Home</a></li>
+                    <li><a href="index.html#about" style="color: var(--text-dark);">About</a></li>
+                    <li><a href="index.html#products" style="color: var(--text-dark);">Products</a></li>
+                    <li><a href="index.html#contact" style="color: var(--text-dark);">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px; padding-bottom: 60px;">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="category-title">All Products</h2>
+                <div class="separator"></div>
+                <p>Authentic Kerala delicacies</p>
+            </div>
+
+            <div class="product-grid" id="product-list">
+                <!-- Products rendered here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AMMACHIES</h3>
+                <p>Taste of Traditions</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Connect</h4>
+                <p>Kerala, India</p>
+                <p>Email: info@ammachies.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ammachies. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Inline script for products page logic
+        const params = new URLSearchParams(window.location.search);
+        const categoryFilter = params.get('category');
+        const titleEl = document.getElementById('category-title');
+        const gridEl = document.getElementById('product-list');
+        const products = JSON.parse(localStorage.getItem('ammachies_products')) || [];
+
+        if (categoryFilter) {
+            titleEl.innerText = `${categoryFilter} Collection`;
+        }
+
+        const filteredProducts = categoryFilter
+            ? products.filter(p => p.category === categoryFilter)
+            : products;
+
+        if (filteredProducts.length === 0) {
+            gridEl.innerHTML = '<div class="empty-state">No products found in this category.</div>';
+        } else {
+            filteredProducts.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card reveal active';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                card.onclick = () => window.location.href = `product-details.html?id=${p.id}`;
+                card.innerHTML = `
+                    <div class="product-img">
+                        <img src="${p.img}" alt="${p.name}" loading="lazy">
+                        <span class="category">${p.category}</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>${p.name}</h3>
+                        <p class="weight">${p.weight}</p>
+                        <p class="desc">${p.desc}</p>
+                    </div>
+                `;
+                gridEl.appendChild(card);
+            });
+        }
+
+        // Mobile menu logic
+        const mobileBtn = document.querySelector(".mobile-menu-btn");
+        const navUl = document.querySelector("nav ul");
+        if (mobileBtn) {
+            mobileBtn.addEventListener("click", () => navUl.classList.toggle("active"));
+        }
+    </script>
+</body>
+
+</html>

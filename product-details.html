@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Ammachies</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        .product-detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .detail-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .detail-weight {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .detail-desc {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="navbar" class="navbar" style="background: var(--bg-white); box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="Ammachies Logo" class="nav-logo">
+                </a>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars" style="color: var(--text-dark);"></i></div>
+            <nav id="nav-links">
+                <ul>
+                    <li><a href="index.html" style="color: var(--text-dark);">Home</a></li>
+                    <li><a href="index.html#products" style="color: var(--text-dark);">Products</a></li>
+                    <li><a href="index.html#contact" style="color: var(--text-dark);">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 150px; padding-bottom: 100px;">
+        <div class="container" id="product-detail-view">
+            <!-- Content loaded via JS -->
+            <div class="loading-products">Loading details...</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AMMACHIES</h3>
+                <p>Taste of Traditions</p>
+            </div>
+            <div class="footer-contact">
+                <p>&copy; 2025 Ammachies. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const pid = params.get('id');
+        const container = document.getElementById('product-detail-view');
+        const products = JSON.parse(localStorage.getItem('ammachies_products')) || [];
+        const product = products.find(p => p.id == pid);
+
+        if (product) {
+            // WhatsApp message encoding
+            const msg = `Hi, I would like to order ${product.name} (${product.weight}).`;
+            const waLink = `https://wa.me/919447736920?text=${encodeURIComponent(msg)}`;
+
+            container.innerHTML = `
+                <div class="product-detail-container">
+                    <div class="detail-image">
+                        <img src="${product.img}" alt="${product.name}">
+                    </div>
+                    <div class="detail-content">
+                        <span class="hero-badge" style="background:var(--accent-color); color:white; margin-bottom:20px;">${product.category}</span>
+                        <h1>${product.name}</h1>
+                        <p class="detail-weight">${product.weight}</p>
+                        <p class="detail-desc">${product.desc}</p>
+                        
+                        <a href="${waLink}" target="_blank" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:10px;">
+                            <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Order on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            `;
+        } else {
+            container.innerHTML = '<h2>Product not found</h2><a href="index.html" class="btn btn-primary">Go Back</a>';
+        }
+
+        // Mobile menu logic
+        const mobileBtn = document.querySelector(".mobile-menu-btn");
+        const navUl = document.querySelector("nav ul");
+        if (mobileBtn) {
+            mobileBtn.addEventListener("click", () => navUl.classList.toggle("active"));
+        }
+    </script>
+</body>
+
+</html>

@@ -223,9 +223,10 @@
                 <h3>Manage Categories</h3>
             </div>
             <div class="form-grid">
-                <div class="form-group" style="display:flex; gap:10px;">
+                <div class="form-group" style="display:flex; flex-direction:column; gap:10px;">
                     <input type="text" id="new-category-input" placeholder="New Category Name">
-                    <button class="btn btn-primary" id="add-category-btn">Add</button>
+                    <input type="text" id="new-category-img" placeholder="Category Image URL (https://...)">
+                    <button class="btn btn-primary" id="add-category-btn" style="width: 100%;">Add Category</button>
                 </div>
                 <div style="max-height: 300px; overflow-y: auto; margin-top: 15px;">
                     <table class="product-list-table">
