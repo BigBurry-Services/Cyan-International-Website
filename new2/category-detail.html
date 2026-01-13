@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Details | Ammachies</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .category-detail-container {
+            padding: 8rem 2rem 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #001a40;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 3rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.6;
+        }
+
+        .category-header {
+            margin-bottom: 4rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 2rem;
+        }
+
+        .category-header h1 {
+            font-size: 2.5rem;
+            color: #001a40;
+            margin-bottom: 1rem;
+        }
+
+        .category-header p {
+            font-size: 1rem;
+            color: #666;
+            max-width: 700px;
+        }
+
+        .product-list-detailed {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .product-item-detailed {
+            border-left: 3px solid #001a40;
+            padding-left: 2rem;
+        }
+
+        .product-item-detailed h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+
+        .product-item-detailed p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .category-detail-container {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .category-header h1 {
+                font-size: 2rem;
+            }
+
+            .product-item-detailed {
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="Ammachies Logo"></a>
+            </div>
+            <ul>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#categories">Categories</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="category-detail-container">
+            <a href="index.html#categories" class="back-link">← Back to Categories</a>
+
+            <div id="category-content">
+                <!-- Content will be injected by JavaScript -->
+                <div class="category-header">
+                    <h1 id="cat-name">Loading...</h1>
+                    <p id="cat-desc"></p>
+                </div>
+
+                <div id="product-list" class="product-list-detailed">
+                    <!-- Products will lead here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 AMMACHIES. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        const categoryData = {
+            'breakfast': {
+                name: 'READY-TO-EAT BREAKFAST',
+                desc: 'Experience the soul of Kerala mornings with our ready-to-eat breakfast range. Crafted with precision and authentic techniques, these staples bring the warmth of a traditional Malayali kitchen to your table in minutes.',
+                products: [
+                    { name: 'Traditional Idly', desc: 'Soft, fluffy, and perfectly fermented rice cakes. Our Idlies are steamed using traditional techniques to ensure they remain airy and moist.' },
+                    { name: 'Rameswaram Idly', desc: 'A regional specialty known for its unique texture and slightly larger size, perfect for soaking up spicy chutneys.' },
+                    { name: 'Fresh Chapathi', desc: 'Soft and wholesome whole wheat flatbreads, prepared without preservatives and ready to accompany any curry.' },
+                    { name: 'Palak Chapathi', desc: 'A nutritious twist on the classic chapathi, infused with fresh spinach puree for added vitamins and a vibrant green color.' },
+                    { name: 'Lace-soft Appam', desc: 'Fermented rice pancakes with a soft, spongy center and crisp, lacy edges—the legendary companion to vegetable stew.' },
+                    { name: 'Nadan Puttu', desc: 'Steamed cylinders of ground rice layered with grated coconut, offering a truly authentic Kerala breakfast experience.' },
+                    { name: 'Poori Masala', desc: 'Fluffy golden fried breads served with a spiced potato mash, a favorite for hearty weekend mornings.' }
+                ]
+            },
+            'porottas': {
+                name: 'SPECIAL POROTTAS',
+                desc: 'Our Porottas are a labor of love, featuring countless layers of flaky goodness achieved through expert dough tossing and folding. A true masterpiece of Kerala street food culture.',
+                products: [
+                    { name: 'Malabar Porotta', desc: 'The classic layered flatbread, crisp on the outside and soft on the inside. Hand-tossed to create a perfect flaky texture.' },
+                    { name: 'Wheat Porotta', desc: 'A healthier alternative to the classic, made with fine whole wheat flour while maintaining the signature layers.' },
+                    { name: 'Green Chilly Porotta', desc: 'Infused with spicy green chilies for those who crave an extra kick in every bite.' },
+                    { name: 'Garlic Porotta', desc: 'Aromatic and flavorful, featuring freshly minced garlic embedded within the layers.' },
+                    { name: 'Ajwain Porotta', desc: 'Infused with carom seeds (ajwain), offering a unique aroma and digestive benefits.' },
+                    { name: 'Spinach Porotta', desc: 'Dough combined with fresh spinach paste, creating a wholesome and visually appealing green flatbread.' },
+                    { name: 'Coin Porotta', desc: 'Miniature versions of the classic Porotta, perfect for appetizers or children\'s meals.' }
+                ]
+            },
+            'veg-curries': {
+                name: 'READY-TO-EAT VEG CURRIES',
+                desc: 'Our vegetarian curries celebrate the bounty of Kerala\'s spice gardens. Each dish is prepared using the "Varutharacha" (roasted coconut) or "Pacha-aracha" (fresh coconut) methods as dictated by tradition.',
+                products: [
+                    { name: 'Nadan Sambar', desc: 'A hearty lentil and vegetable stew flavored with a complex blend of roasted spices and tangy tamarind.' },
+                    { name: 'Malabar Avial', desc: 'The king of vegetable dishes—a thick mix of seasonal vegetables in a coarse coconut and yogurt paste.' },
+                    { name: 'Ulli Theeyal', desc: 'Pearl onions caramelized and simmered in a dark, intensely flavored roasted coconut and tamarind sauce.' },
+                    { name: 'Vegetable Stew', desc: 'A mild, aromatic curry where vegetables are poached in creamy coconut milk with whole spices.' },
+                    { name: 'Mathanga Erissery', desc: 'Sweet yellow pumpkin and cowpeas cooked in a roasted coconut base, topped with toasted coconut flakes.' },
+                    { name: 'Paneer Butter Masala', desc: 'A creamy, mildly spiced North Indian classic reimagined with Ammachies\' commitment to purity.' }
+                ]
+            },
+            'non-veg-curries': {
+                name: 'READY-TO-EAT NON-VEG CURRIES',
+                desc: 'Experience the robust and spicy flavors of Kerala\'s coastal and highland meat preparations. Slow-cooked to ensure every fiber is infused with the richness of the gravy.',
+                products: [
+                    { name: 'Nadan Chicken Curry', desc: 'Country-style chicken curry featuring a medium-spiced gravy of shallots, ginger, and garlic.' },
+                    { name: 'Beef Roast (Ularthiyathu)', desc: 'The legendary Kerala beef fry, slow-cooked with coconut slivers, black pepper, and curry leaves.' },
+                    { name: 'Mutton Curry Gravy', desc: 'Tender mutton pieces in a thick, aromatic gravy flavored with star anise and fennel.' },
+                    { name: 'Alleppey Fish Curry', desc: 'A tangy and spicy preparation using king fish or seer fish, flavored with raw mango and thick coconut milk.' }
+                ]
+            },
+            'chutneys': {
+                name: 'CHUTNEYS & CHAMMANTHI',
+                desc: 'The perfect tangy and spicy accompaniments that complete any meal. Our chutneys are ground to the perfect consistency to ensure a burst of flavor.',
+                products: [
+                    { name: 'Thenga Chutney', desc: 'Classic white coconut chutney with a hint of ginger and green chilies, tempered with mustard.' },
+                    { name: 'Mango Chammanthi', desc: 'Coarsely ground dry coconut and raw mango with bird\'s eye chilies—a nostalgic village favorite.' },
+                    { name: 'Gooseberry Chammanthi', desc: 'A vitamin-rich accompaniment featuring salted gooseberries (Nellikka) and spicy red chilies.' },
+                    { name: 'Chammanthi Podi', desc: 'Roasted coconut and spice powder, the long-lasting companion for travel and quick meals.' }
+                ]
+            },
+            'frozen-rtc': {
+                name: 'FROZEN & READY-TO-COOK',
+                desc: 'Modern solutions for traditional cravings. Our frozen RTC range ensures you have the base for a perfect Kerala meal ready in your freezer at all times.',
+                products: [
+                    { name: 'Idly/Dosa Batter', desc: 'Stone-ground and naturally fermented batter, ensuring perfectly soft idlies and crisp dosas every time.' },
+                    { name: 'Frozen Coconut Milk Cubes', desc: 'Pure, thick coconut milk frozen into convenient portions, eliminating the need for scraping and pressing.' },
+                    { name: 'Ready Pothichoru', desc: 'A complete Kerala meal wrapped in a wilted banana leaf, flash-frozen to retain the unique aroma of the leaf.' },
+                    { name: 'Rice Porridge (Kanji)', desc: 'Wholesome red rice porridge, a comforting meal ready to be heated and served.' }
+                ]
+            },
+            'frozen-snacks': {
+                name: 'FROZEN READY-TO-EAT SNACKS',
+                desc: 'Traditional teatime treats, curated for the modern lifestyle. Just heat and serve to experience the joy of a Kerala evening snack.',
+                products: [
+                    { name: 'Pazham Pori (Banana Fry)', desc: 'Sweet, ripe plantain slices dipped in a light batter and fried—the ultimate Malayali snack.' },
+                    { name: 'Meat Cutlets', desc: 'Spiced minced meat and potato patties, breaded and ready for a quick pan-fry.' },
+                    { name: 'Ela Ada', desc: 'Rice parcels filled with jaggery and coconut, steamed in banana leaves for a heavenly aroma.' },
+                    { name: 'Kuzhalappam', desc: 'Crisp, tube-shaped rice crackers flavored with cumin and sesame.' },
+                    { name: 'Uzhunnu Vada', desc: 'Savory lentil doughnuts, crisp on the outside and wonderfully soft inside.' }
+                ]
+            },
+            'fried-snacks': {
+                name: 'FRIED SNACKS & CHIPS',
+                desc: 'Our chips are fried in 100% pure coconut oil, ensuring the authentic taste and crunch that Kerala is famous for.',
+                products: [
+                    { name: 'Kerala Banana Chips', desc: 'Thinly sliced raw bananas fried in pure coconut oil—the gold standard of Kerala snacks.' },
+                    { name: 'Sarkaravaratty', desc: 'Thick banana chunks coated in a spiced jaggery caramel, a staple for any traditional feast.' },
+                    { name: 'Jackfruit Chips', desc: 'Seasonal delicacy made from mature raw jackfruit, offering a unique hearty crunch.' },
+                    { name: 'Tapioca Chips', desc: 'Thinly sliced cassava roots, seasoned with salt and chili for a satisfying snap.' },
+                    { name: 'Kerala Mixture', desc: 'A spicy and savory mix of sev, boondi, peanuts, and fried curry leaves.' }
+                ]
+            },
+            'pickles': {
+                name: 'TRADITIONAL PICKLES',
+                desc: 'Preserved with care and aged to perfection. Our pickles use traditional recipes that balance spice, tang, and the richness of gingelly oil.',
+                products: [
+                    { name: 'Kadumango Pickle', desc: 'Tender baby mangoes pickled in a spicy red chili sauce—the most beloved Kerala pickle.' },
+                    { name: 'Lime Pickle (Naranga)', desc: 'Tangy and aromatic, featuring salted lime pieces cured in a blend of hot spices.' },
+                    { name: 'Garlic Pickle', desc: 'Whole garlic cloves slow-cooked in a tangy medium-spiced sauce, perfect for rice or porotta.' },
+                    { name: 'Fish Pickle', desc: 'Premium fish chunks fried and cured in a spicy, vinegary masala—a meal in itself.' },
+                    { name: 'Prawns Pickle', desc: 'Succulent fried prawns preserved in an intensely flavored spicy gravy.' }
+                ]
+            },
+            'curry-powders': {
+                name: 'CURRY POWDERS & SPICES',
+                desc: 'Pure, unadulterated, and aromatic. We source the best spices from across Kerala and grind them in small batches to preserve their essential oils.',
+                products: [
+                    { name: 'Pure Turmeric Powder', desc: 'High-curcumin turmeric, cleaned and ground to a fine, vibrant gold powder.' },
+                    { name: 'Kashmiri Chilli Powder', desc: 'The perfect balance of color and mild heat, essential for the signature red look of Kerala curries.' },
+                    { name: 'Malabar Sambar Powder', desc: 'A proprietary blend of 12 roasted spices, ensuring the authentic taste of Nadan Sambar.' },
+                    { name: 'Chicken Masala', desc: 'A robust blend of coriander, chilly, peppercorns, and warm spices for the perfect poultry dish.' }
+                ]
+            },
+            'flours': {
+                name: 'FLOURS & INSTANT MIXES',
+                desc: 'High-quality flours processed from premium grains. Our instant mixes are designed to save time without compromising on tradition.',
+                products: [
+                    { name: 'Roasted Rice Powder', desc: 'Fine-ground rice powder, steam-roasted for the perfect consistency for Appam, Idiyappam, or Pathiri.' },
+                    { name: 'Puttu Podi', desc: 'Coarsely ground rice powder, specially prepared to create the light and airy texture of Nadan Puttu.' },
+                    { name: 'Instant Dosa Mix', desc: 'A convenient dry mix that requires only water and a quick rest to become perfect dosa batter.' },
+                    { name: 'Wheat Powder', desc: '100% whole wheat flour, cleaned and ground to retain all natural nutrients.' }
+                ]
+            },
+            'dry-products': {
+                name: 'DRY PRODUCTS & PULSES',
+                desc: 'Essential pantry items sourced directly from producers. We ensure every grain meets our high standards of purity.',
+                products: [
+                    { name: 'Premium Matta Rice', desc: 'Authentic Kerala red rice, rich in nutrients and fiber, essential for a daily Malayali meal.' },
+                    { name: 'Unda Jaggery', desc: 'Traditional ball jaggery made from pure sugarcane juice, perfect for payasam and snacks.' },
+                    { name: 'Malabar Tamarind (Kudampuli)', desc: 'Sun-dried garcinia, essential for the signature tanginess of Kerala fish curries.' },
+                    { name: 'Assorted Pulses', desc: 'Hand-picked Dals, Mung Beans, and Chickpeas, cleaned and ready for the pot.' }
+                ]
+            },
+            'oils': {
+                name: 'PURE OILS',
+                desc: 'The foundation of Kerala cuisine. Our oils are extracted using traditional cold-pressing methods to ensure they retain their natural nutrients and aroma.',
+                products: [
+                    { name: 'Pure Coconut Oil', desc: 'Extracted from the finest sun-dried copra, our oil is 100% pure, edible, and highly aromatic.' },
+                    { name: 'Virgin Coconut Oil', desc: 'Cold-pressed from fresh coconut milk, rich in medium-chain triglycerides and perfect for health use.' },
+                    { name: 'Nallennai (Gingelly Oil)', desc: 'Traditional sesame oil, essential for pickling and authentic southern style tempering.' }
+                ]
+            },
+            'cakes': {
+                name: 'CAKES & BAKERY ITEMS',
+                desc: 'Bringing the refined taste of Kerala\'s bakery culture to your home. Our cakes are made with premium ingredients and baked to perfection.',
+                products: [
+                    { name: 'Kerala Plum Cake', desc: 'A rich, dark cake loaded with rum-soaked fruits and aromatic warm spices like nutmeg and cloves.' },
+                    { name: 'Pineapple Cake', desc: 'Soft sponge cake layered with fresh pineapple preserves, a tropical teatime favorite.' },
+                    { name: 'Carrot Cake', desc: 'Wholesome and moist cake made with grated carrots and crunchy walnuts.' },
+                    { name: 'Marble Cake', desc: 'A beautiful swirl of vanilla and chocolate batters, perfect for children and adults alike.' }
+                ]
+            },
+            'salted': {
+                name: 'SALTED FRUITS & VEG',
+                desc: 'Traditional preservation at its best. These salted items are essential for creating the unique tang of a Kerala village meal.',
+                products: [
+                    { name: 'Salted Mango (Uppumavu)', desc: 'Raw mangoes preserved in brine, the quintessential companion for rice porridge (Kanji).' },
+                    { name: 'Salted Green Pepper', desc: 'Fresh green peppercorns in brine, adding a unique spicy pop to curries and side dishes.' },
+                    { name: 'Salted Carrot & Pineapple', desc: 'A unique tangy-sweet preserved mix, often used in regional salads and side dishes.' },
+                    { name: 'Salted Gooseberry', desc: 'Whole amla fruits in spicy brine, a healthy and tangy snack or side.' }
+                ]
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const catId = urlParams.get('id');
+        const data = categoryData[catId];
+
+        if (data) {
+            document.title = data.name + ' | Ammachies';
+            document.getElementById('cat-name').textContent = data.name;
+            document.getElementById('cat-desc').textContent = data.desc;
+
+            const listContainer = document.getElementById('product-list');
+            data.products.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'product-item-detailed';
+                item.innerHTML = `
+                    <h2>${p.name}</h2>
+                    <p>${p.desc}</p>
+                `;
+                listContainer.appendChild(item);
+            });
+        } else {
+            window.location.href = 'index.html#categories';
+        }
+    </script>
+</body>
+
+</html>
