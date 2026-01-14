@@ -128,115 +128,41 @@
     </footer>
 
     <script>
-        const products = {
-            'cassava': {
-                name: 'FRESH CASSAVA',
-                img: 'products/cassava.png',
-                desc: 'Our Fresh Cassava is sourced from the finest plantations in Kerala, where the rich soil and tropical climate produce the best roots. We process our cassava within hours of harvesting to ensure it retains its natural starchiness and earthy flavor. Prefectly cleaned and cut, it\'s ready for boiling or frying, serving as a staple in traditional Kerala meals.',
-                ingredients: '100% Premium Kerala Cassava.',
-                shelf: '6 Months (Frozen)'
-            },
-            'coconut': {
-                name: 'GRATED COCONUT',
-                img: 'products/grated coconut.png',
-                desc: 'Freshly harvested coconuts from the sun-drenched groves of Kerala, grated to perfection and flash-frozen to lock in the natural milky sweetness, rich aroma, and moisture. Our product is 100% natural, with no added water or preservatives. It\'s the perfect time-saver for busy kitchens, essential for traditional chutneys, thorans, and aviyals.',
-                ingredients: '100% Natural Kerala Coconut.',
-                shelf: '12 Months (Frozen)'
-            },
-            'kadala': {
-                name: 'KADALA VARUTHARA CURRY',
-                img: 'products/kadala varuthara curry.png',
-                desc: 'A quintessential Kerala breakfast companion, our Kadala Varuthara Curry features tender black chickpeas slow-cooked in a rich, deeply flavored gravy of roasted coconut and aromatic spices. The "Varuthara" technique creates a complex smoky flavor that is unique to traditional Malayali cooking.',
-                ingredients: 'Black Chickpeas, Roasted Coconut, Shallots, Ginger, Garlic, traditional Spice Blend.',
-                shelf: '12 Months (Frozen)'
-            },
-            'koorkka': {
-                name: 'KOORKKA STIR-FRY',
-                img: 'products/koorkka mezhukkuppuratty.png',
-                desc: 'Koorkka, or Chinese Potato, is a beloved seasonal treasure in Kerala. Our stir-fry is prepared in the authentic village style, where the earthy tubers are sautéed with crushed shallots, garlic, and red chilies in pure coconut oil.',
-                ingredients: 'Chinese Potato (Koorkka), Shallots, Coconut Oil, Garlic, Chili, Turmeric.',
-                shelf: '6 Months (Frozen)'
-            },
-            'mambazha': {
-                name: 'MAMBAZHA CURRY',
-                img: 'products/mambazhacurry.png',
-                desc: 'Celebrating the mango season of Kerala, this sweet and sour dish features ripe local mangoes simmered in a yogurt and coconut base flavored with cumin and green chilies. It\'s a cooling and utterly delicious accompaniment to red rice.',
-                ingredients: 'Ripe Mangoes, Thick Curd, Coconut, Green Chilies, Cumin, Turmeric.',
-                shelf: '12 Months (Frozen)'
-            },
-            'sweet': {
-                name: 'SWEET CURRY',
-                img: 'products/sweet curry.png',
-                desc: 'A festive preparation combining the goodness of legumes with the rich, caramel sweetness of jaggery and creamy coconut milk. Fragrant with cardamom and ginger, it bridges the gap between a side dish and a dessert.',
-                ingredients: 'Pulses/Tubers, Jaggery, Coconut Milk, Cardamom, Dry Ginger.',
-                shelf: '12 Months (Frozen)'
-            },
-            'ulli': {
-                name: 'ULLI THEEYAL',
-                img: 'products/ulli theeyal.png',
-                desc: 'A masterclass in the roasted coconut technique. Small pearl onions are caramelized and simmered in a thick, tangy sauce made from highly roasted coconut and tamarind. It\'s one of the most sophisticated vegetarian curries of the region.',
-                ingredients: 'Shallots, Roasted Coconut, Tamarind, Coriander, Red Chili, Fenugreek.',
-                shelf: '12 Months (Frozen)'
-            },
-            'stew': {
-                name: 'VEGETABLES STEW',
-                img: 'products/vegetables stew.png',
-                desc: 'A delicate and aromatic preparation where potatoes, carrots, and beans are gently poached in creamy coconut milk flavored with whole spices like cinnamon and cloves. The legendary companion to lace-soft Appams.',
-                ingredients: 'Potato, Carrot, Beans, Coconut Milk, Ginger, Whole Spices.',
-                shelf: '12 Months (Frozen)'
-            },
-            'beetroot': {
-                name: 'BEETROOT PACHADI',
-                img: 'products/beetroot pachadi.png',
-                desc: 'A vibrant and colorful Kerala delicacy, our Beetroot Pachadi is a yogurt-based accompaniment that perfectly balances the earthy sweetness of fresh beets with the tang of curd and the aroma of coconut and mustard.',
-                ingredients: 'Beetroot, Thick Curd, Coconut, Mustard Seeds, Ginger, Curry Leaves.',
-                shelf: '6 Months (Frozen)'
-            },
-            'cheera': {
-                name: 'CHEERA THORAN',
-                img: 'products/cheera thoran green.png',
-                desc: 'A staple in every Malayali household, our Cheera Thoran (Spinach Stir-fry) captures the essence of home cooking. Fresh green spinach is finely chopped and sautéed with grated coconut, shallots, and green chilies.',
-                ingredients: 'Spinach (Cheera), Grated Coconut, Shallots, Green Chilies, Coconut Oil, Mustard.',
-                shelf: '6 Months (Frozen)'
-            },
-            'cucumber': {
-                name: 'CUCUMBER PACHADI',
-                img: 'products/cucumber pachadi.png',
-                desc: 'A refreshing and cooling side dish, essential for a traditional Kerala Sadya. Our Cucumber Pachadi combines crisp, finely chopped cucumbers with a spiced coconut-yogurt base, tempered with mustard and curry leaves.',
-                ingredients: 'Cucumber, Thick Curd, Coconut, Mustard Seeds, Green Chilies, Ginger.',
-                shelf: '6 Months (Frozen)'
-            },
-            'mangomappas': {
-                name: 'MANGO MAPPAS',
-                img: 'products/mango mappas.png',
-                desc: 'Mango Mappas is a luscious, creamy curry where ripe mangoes are slow-cooked in a rich coconut milk base infused with a unique blend of Kerala spices. It offers a perfect harmony of sweet, spicy, and creamy flavors.',
-                ingredients: 'Ripe Mangoes, Coconut Milk, Ginger, Garlic, Cardamom, Cloves, Cinnamon, Turmeric.',
-                shelf: '12 Months (Frozen)'
-            },
-            'pumpkin': {
-                name: 'PUMPKIN ERISSERY',
-                img: 'products/pumpkin erissery.png',
-                desc: 'A classic Kerala dish featuring sweet yellow pumpkin and cowpeas cooked in a roasted coconut sauce. The dish is topped with deeply browned coconut flakes, adding a delightful crunch and nutty aroma.',
-                ingredients: 'Yellow Pumpkin, Cowpeas (Vanpayar), Roasted Coconut, Black Pepper, Cumin, Turmeric.',
-                shelf: '12 Months (Frozen)'
+        async function loadProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            if (!productId) {
+                window.location.href = 'index.html#products';
+                return;
             }
-        };
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id');
-        const product = products[productId];
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                const product = data.products.find(p => p.id === productId);
 
-        if (product) {
-            document.title = product.name + ' | Ammachies';
-            document.getElementById('product-name').textContent = product.name;
-            document.getElementById('product-img').src = product.img;
-            document.getElementById('product-img').alt = product.name;
-            document.getElementById('product-desc').textContent = product.desc;
-            document.getElementById('product-ingredients').textContent = product.ingredients;
-            document.getElementById('product-shelf').textContent = product.shelf;
-        } else {
-            window.location.href = 'index.html';
+                if (product) {
+                    document.title = (product.name || 'Product Details') + ' | Ammachies';
+                    document.getElementById('product-name').textContent = (product.name || 'Unknown Product').toUpperCase();
+
+                    const img = document.getElementById('product-img');
+                    img.src = product.image || 'placeholder.png'; // Fallback if image missing
+                    img.alt = product.name;
+
+                    document.getElementById('product-desc').textContent = product.desc || 'Premium quality Kerala food product. Processed and packed with care to ensure authentic taste and freshness.';
+                    document.getElementById('product-ingredients').textContent = product.ingredients || 'Natural Ingredients.';
+                    document.getElementById('product-shelf').textContent = product.shelf || 'Best before 6 months from packaging (Frozen).';
+                } else {
+                    document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Product Not Found</h1><a href="index.html">Go Home</a></div>';
+                }
+            } catch (error) {
+                console.error('Error loading product:', error);
+                document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Error Loading Product</h1><p>Please try again later.</p></div>';
+            }
         }
+
+        document.addEventListener('DOMContentLoaded', loadProduct);
     </script>
 </body>
 

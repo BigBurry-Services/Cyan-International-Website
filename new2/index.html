@@ -26,7 +26,18 @@
             </div>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#products">Products</a></li>
+                <li class="dropdown">
+                    <a href="#categories">Categories</a>
+                    <ul class="dropdown-content" id="cat-dropdown">
+                        <!-- Dynamic Content -->
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#products">Products</a>
+                    <ul class="dropdown-content" id="prod-dropdown">
+                        <!-- Dynamic Content -->
+                    </ul>
+                </li>
                 <li><a href="#locations">Export</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -41,218 +52,9 @@
 
         <section id="categories" class="content-section">
             <h2 class="section-title">OUR CATEGORIES</h2>
-            <div class="category-grid">
-                <a href="category-detail.html?id=breakfast" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/READY-TO-EAT BREAKFAST.jpg" alt="Ready-to-Eat Breakfast"
-                                loading="lazy">
-                        </div>
-                        <h3>1. READY-TO-EAT BREAKFAST</h3>
-                        <ul class="product-list-small">
-                            <li>Idly, Rameswaram Idly</li>
-                            <li>Chapathi, Palak Chapathi</li>
-                            <li>Idiyappam, Puttu, Appam</li>
-                            <li>Dosa, Poori Masala, etc.</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=porottas" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/SPECIAL POROTTAS.webp" alt="Special Porottas" loading="lazy"
-                                decoding="async">
-                        </div>
-                        <h3>2. SPECIAL POROTTAS</h3>
-                        <ul class="product-list-small">
-                            <li>Malabar Porotta, Wheat Porotta</li>
-                            <li>Green Chilly, Chocolate, Jeera</li>
-                            <li>Garlic, Spinach, Ajwain</li>
-                            <li>Ceylon, Coin Porotta, etc.</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=veg-curries" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/READY-TO-EAT VEG CURRIES.jpg" alt="Ready-to-Eat Veg Curries"
-                                loading="lazy">
-                        </div>
-                        <h3>3. READY-TO-EAT VEG CURRIES</h3>
-                        <ul class="product-list-small">
-                            <li>Avial, Sambar, Kaalan, Olan</li>
-                            <li>Mezhukkupuratti, Thoran</li>
-                            <li>Pachadi, Theeyal, Stew</li>
-                            <li>Paneer Butter Masala, etc.</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=non-veg-curries" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/READY-TO-EAT NON-VEG CURRIES.jpg" alt="Ready-to-Eat Non-Veg Curries"
-                                loading="lazy">
-                        </div>
-                        <h3>4. READY-TO-EAT NON-VEG CURRIES</h3>
-                        <ul class="product-list-small">
-                            <li>Chicken Curry Gravy</li>
-                            <li>Mutton Curry Gravy</li>
-                            <li>Beef Curry Gravy</li>
-                            <li>Fish Curry (Nadan Gravy)</li>
-                            <li>Vegetable Kuruma</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=chutneys" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/CHUTNEYS.jpg" alt="Chutneys" loading="lazy">
-                        </div>
-                        <h3>5. CHUTNEYS</h3>
-                        <ul class="product-list-small">
-                            <li>Coconut, Mango, Chilly</li>
-                            <li>Gooseberry, Tomato Chutney</li>
-                            <li>Chammanthi Podi, etc.</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=frozen-rtc" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/FROZEN & READY-TO-COOK.jpg" alt="Frozen & Ready-to-Cook"
-                                loading="lazy">
-                        </div>
-                        <h3>6. FROZEN & READY-TO-COOK</h3>
-                        <ul class="product-list-small">
-                            <li>Idly/Dosa Batter</li>
-                            <li>Frozen Coconut Milk Cubes</li>
-                            <li>Rice Porridge, Pothichoru</li>
-                            <li>Vegetable Pulav, Noodles</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=frozen-snacks" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/_FROZEN READY-TO-EAT SNACKS.jpg" alt="Other Frozen RTC Snacks"
-                                loading="lazy">
-                        </div>
-                        <h3>7. FROZEN READY-TO-EAT SNACKS</h3>
-                        <ul class="product-list-small">
-                            <li>Banana Fry, Cutlet, Roast</li>
-                            <li>Ela Ada, Kozhukutta, Sukhiyan</li>
-                            <li>Parippuvada, Uzhunnuvada</li>
-                            <li>Veg Samosa, Cutlet, Puffs</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=fried-snacks" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/FRIED SNACKS.jpg" alt="Fried Snacks" loading="lazy">
-                        </div>
-                        <h3>8. FRIED SNACKS</h3>
-                        <ul class="product-list-small">
-                            <li>Banana Chips, Jackfruit Chips</li>
-                            <li>Mixture, Murukku, Pakkavada</li>
-                            <li>Sarkaravaratty, Kuzhalappam</li>
-                            <li>Tapioca Chips, etc.</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=pickles" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/PICKLES.jpg" alt="Pickles" loading="lazy">
-                        </div>
-                        <h3>9. PICKLES</h3>
-                        <ul class="product-list-small">
-                            <li>Mango, Lime, Mixed Veg</li>
-                            <li>Ginger, Garlic, Nellikka</li>
-                            <li>Prawns, Fish, Dates Lime</li>
-                            <li>Bitter Gourd Pickle</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=curry-powders" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/CURRY POWDERS.jpg" alt="Curry Powders" loading="lazy">
-                        </div>
-                        <h3>10. CURRY POWDERS</h3>
-                        <ul class="product-list-small">
-                            <li>Turmeric, Kashmiri Chilli</li>
-                            <li>Sambar Powder, Coriander</li>
-                            <li>Chilly Powder, Crushed Chilly</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=flours" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/FLOURS & INSTANT MIXES.jpg" alt="Flours & Instant Mixes"
-                                loading="lazy">
-                        </div>
-                        <h3>11. FLOURS & INSTANT MIXES</h3>
-                        <ul class="product-list-small">
-                            <li>Roasted Rice Powder (W/B)</li>
-                            <li>Puttu Podi (W/B)</li>
-                            <li>Instant Idly/Dosa Mix</li>
-                            <li>Roasted Rava, Wheat Powder</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=dry-products" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/DRY PRODUCTS.jpg" alt="Dry Products" loading="lazy">
-                        </div>
-                        <h3>12. DRY PRODUCTS</h3>
-                        <ul class="product-list-small">
-                            <li>Pulses (Dals, Grams)</li>
-                            <li>Tamarind, Jaggery Unda</li>
-                            <li>Rice (Various Types)</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=oils" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/coconut oil.jpg" alt="Oils" loading="lazy">
-                        </div>
-                        <h3>13. OILS</h3>
-                        <ul class="product-list-small">
-                            <li>Pure Coconut Oil (1L / 5L)</li>
-                            <li>Virgin Coconut Oil</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=cakes" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/CAKES & BAKERY ITEMS.jpg" alt="Cakes & Bakery Items" loading="lazy">
-                        </div>
-                        <h3>14. CAKES & BAKERY ITEMS</h3>
-                        <ul class="product-list-small">
-                            <li>Plum, Pineapple, Carrot</li>
-                            <li>Marble, Cup Cakes</li>
-                        </ul>
-                    </div>
-                </a>
-                <a href="category-detail.html?id=salted" class="category-item-link">
-                    <div class="category-item">
-                        <div class="category-image">
-                            <img src="categories/SALTED FRUITS & VEGETABLES.jpg" alt="Salted Fruits & Veg"
-                                loading="lazy">
-                        </div>
-                        <h3>15. SALTED FRUITS & VEGETABLES</h3>
-                        <ul class="product-list-small">
-                            <li>Salted Mango, Pepper, Carrot</li>
-                            <li>Banana Steam, Gooseberry</li>
-                            <li>Salted Pineapple</li>
-                        </ul>
-                    </div>
-                </a>
+            <div class="category-grid" id="category-grid">
+                <!-- Dynamic Content -->
+                <div class="loading-placeholder">Loading Categories...</div>
             </div>
         </section>
 
@@ -285,98 +87,9 @@
 
         <section id="products" class="content-section">
             <h2 class="section-title">FEATURED PRODUCTS</h2>
-            <div class="product-grid">
-                <a href="product-detail.html?id=cassava" class="product-card">
-                    <img src="products/cassava.png" alt="Fresh Cassava" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>FRESH CASSAVA</h3>
-                        <p>Premium quality Kerala Cassava, processed for freshness.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=coconut" class="product-card">
-                    <img src="products/grated coconut.png" alt="Grated Coconut" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>GRATED COCONUT</h3>
-                        <p>Freshly grated coconut, preserved for convenience.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=kadala" class="product-card">
-                    <img src="products/kadala varuthara curry.png" alt="Kadala Varuthara Curry" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>KADALA VARUTHARA</h3>
-                        <p>Authentic roasted coconut chickpea curry.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=koorkka" class="product-card">
-                    <img src="products/koorkka mezhukkuppuratty.png" alt="Koorkka Mezhukkuppuratty" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>KOORKKA STIR-FRY</h3>
-                        <p>Traditional Chinese Potato mezhukkuppuratty.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=mambazha" class="product-card">
-                    <img src="products/mambazhacurry.png" alt="Mambazha Curry" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>MAMBAZHA CURRY</h3>
-                        <p>Sweet and sour traditional mango delicacy.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=sweet" class="product-card">
-                    <img src="products/sweet curry.png" alt="Sweet Curry" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>SWEET CURRY</h3>
-                        <p>Classic Kerala festive sweet preparation.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=ulli" class="product-card">
-                    <img src="products/ulli theeyal.png" alt="Ulli Theeyal" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>ULLI THEEYAL</h3>
-                        <p>Spicy shallot curry in a roasted coconut base.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=stew" class="product-card">
-                    <img src="products/vegetables stew.png" alt="Vegetables Stew" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>VEGETABLES STEW</h3>
-                        <p>Mild and creamy coconut milk vegetable stew.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=beetroot" class="product-card">
-                    <img src="products/beetroot pachadi.png" alt="Beetroot Pachadi" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>BEETROOT PACHADI</h3>
-                        <p>Sweet and tangy beetroot yogurt delicacy.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=cheera" class="product-card">
-                    <img src="products/cheera thoran green.png" alt="Cheera Thoran" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>CHEERA THORAN</h3>
-                        <p>Fresh spinach stir-fry with grated coconut.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=cucumber" class="product-card">
-                    <img src="products/cucumber pachadi.png" alt="Cucumber Pachadi" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>CUCUMBER PACHADI</h3>
-                        <p>Refreshing cucumber and yogurt side dish.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=mangomappas" class="product-card">
-                    <img src="products/mango mappas.png" alt="Mango Mappas" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>MANGO MAPPAS</h3>
-                        <p>Ripe mangoes in a rich, spiced coconut milk gravy.</p>
-                    </div>
-                </a>
-                <a href="product-detail.html?id=pumpkin" class="product-card">
-                    <img src="products/pumpkin erissery.png" alt="Pumpkin Erissery" loading="lazy">
-                    <div class="product-card-info">
-                        <h3>PUMPKIN ERISSERY</h3>
-                        <p>Sweet pumpkin and cowpeas with roasted coconut.</p>
-                    </div>
-                </a>
+            <div class="product-grid" id="product-grid">
+                <!-- Dynamic Content -->
+                <div class="loading-placeholder">Loading Products...</div>
             </div>
         </section>
 
@@ -510,47 +223,7 @@
         </div>
     </footer>
 
-    <script>
-        const hero = document.querySelector('.hero');
-        const heroText = document.querySelector('h1.reveal-text');
-        const slides = [
-            { text: "AMMACHIES", bg: "banner.jpg" },
-            { text: "TASTE OF TRADITION", bg: "banner1.jpg" },
-            { text: "FLAVORS OF KERALA", bg: "banner2.png" }
-        ];
-        let currentIdx = 0;
-
-        function rotateHero() {
-            // Start text fade and background zoom
-            heroText.classList.add('fade-out');
-            hero.style.filter = "brightness(0.8)";
-
-            setTimeout(() => {
-                currentIdx = (currentIdx + 1) % slides.length;
-
-                // Update content
-                heroText.textContent = slides[currentIdx].text;
-
-                // Update background only on Desktop
-                if (window.innerWidth > 768) {
-                    hero.style.background = `linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 40%), url('${slides[currentIdx].bg}')`;
-                    hero.style.backgroundSize = 'cover';
-                    hero.style.backgroundPosition = 'center';
-                    hero.style.backgroundAttachment = 'fixed';
-                } else {
-                    hero.style.background = "#001a40"; // Keep solid on mobile
-                }
-
-                // Finish animations
-                setTimeout(() => {
-                    heroText.classList.remove('fade-out');
-                    hero.style.filter = "brightness(1)";
-                }, 50);
-            }, 600);
-        }
-
-        setInterval(rotateHero, 4000); // Slightly longer interval for the animations to breathe
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

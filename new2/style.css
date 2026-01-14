@@ -35,7 +35,7 @@ h1, h2, h3 {
 
 /* Header & Nav */
 header {
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
     position: fixed;
     width: 100%;
     top: 0;
@@ -99,6 +99,106 @@ nav ul li a:hover {
     opacity: 0.6;
 }
 
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    padding-bottom: 20px; /* Bridge gap for hover */
+    margin-bottom: -20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 450px; /* Wider for columns */
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
+    z-index: 1000;
+    top: 100%;
+    left: -50%;
+    transform: translateX(-15%); /* Center alignment tweak */
+    border-radius: 12px;
+    padding: 15px;
+    list-style: none; 
+    
+    /* grid layout */
+    display: none; /* Hidden by default, toggled to grid on hover */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Override nav ul flex display for the dropdown */
+nav ul .dropdown-content {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.dropdown-content li {
+    padding: 0;
+    width: 100%;
+}
+
+.dropdown-content li a {
+    color: var(--dim-text);
+    padding: 8px 12px;
+    text-shadow: none;
+    display: block;
+    font-size: 0.7rem; /* Smaller text */
+    text-transform: capitalize; 
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+/* Mega Menu Fix */
+.dropdown-content.mega-menu {
+    position: fixed; /* Break out of relative container */
+    top: 82px; /* Anchor to bottom of header */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 1200px; /* Constrain max width */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for dense data */
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 30px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Ensure standard dropdowns are centered properly */
+.dropdown-content:not(.mega-menu) {
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 450px;
+    right: auto;
+}
+
+.dropdown-content li a:hover {
+    background-color: #f0f7ff;
+    color: #001a40; 
+    transform: translateX(3px);
+}
+
+.dropdown:hover .dropdown-content {
+    display: grid; /* Show as grid */
+    animation: dropdownEntrance 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes dropdownEntrance {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px) translateX(-15%) scale(0.95); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) translateX(-15%) scale(1); 
+    }
+}
+
 /* Hero Section */
 .hero {
     height: 70vh;
@@ -153,7 +253,7 @@ h1.reveal-text.fade-out {
 
 /* Content Sections */
 .content-section {
-    padding: 3rem 1.5rem;
+    padding: 3rem 4rem;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -400,7 +500,7 @@ h1.reveal-text.fade-out {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
 }
 
@@ -485,7 +585,7 @@ h1.reveal-text.fade-out {
 .main-footer {
     background-color: #000000;
     color: #ffffff;
-    padding: 3rem 2rem 1.5rem;
+    padding: 3rem 4rem 1.5rem;
     margin-top: 2rem;
 }
 
@@ -581,6 +681,9 @@ h1.reveal-text.fade-out {
     .category-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -641,5 +744,17 @@ h1.reveal-text.fade-out {
     }
     .promo-content {
         padding: 0 1rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
