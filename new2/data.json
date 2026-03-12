@@ -480,11 +480,83 @@
   ],
   "products": [
     {
+      "id": "elayada-featured",
+      "name": "ELAYADA JAGGERY",
+      "image": "products/Elayada.jpg",
+      "desc": "Frozen, Cooked, Ready to Eat, Elayada with grated coconut & jaggery filling inside. Steam Cooked, white coloured, flat, soft Elayada.",
+      "featured": true,
+      "ingredients": "Rice, Jaggery, Cardamom powder, Cumin powder, Grated coconut, Salt, Water",
+      "product_forms": "Steam Cooked",
+      "physical_properties": "White coloured, flat, soft Elayada with grated coconut & jaggery filling",
+      "packaging": "Elayada is primarily packed in low density polythene(LDPE) bags/trays, which are then packed in duplex and finally packed in master cartons. Eg: 400 gm x 12 bags etc.",
+      "intended_use": "The product is considered ready-to-eat, but is typically heated to hot holding temperatures (135°F (57°C) or above for palatability. Heating is typically conducted using microwave oven. End user may thaw at refrigeration temperatures overnight to reduce cooking time. Sold for foodservice applications.",
+      "potential_abuse": "Some establishments may hold thawed product for longer than the recommended 24 hours.",
+      "intended_consumers": "General Public",
+      "shelf_life": "24 months when stored at or below -18°C",
+      "labelling_instructions": "Keep Frozen, Fresh Frozen, Ready to eat, Store below -18°C, Heating instruction, Allergen Instruction.",
+      "storage_distribution": "Store below -18°C"
+    },
+    {
+      "id": "kozhukotta-featured",
+      "name": "KOZHUKOTTA",
+      "image": "products/Kozhukkatta.jpg",
+      "desc": "Frozen, Cooked, Ready to Eat, Kozhukotta with grated coconut & jaggery filling inside. White coloured, soft, round balls.",
+      "featured": true,
+      "ingredients": "Rice, Jaggery, Cardamom powder, Cumin powder, Grated coconut, Salt, Water",
+      "product_forms": "Steam Cooked",
+      "physical_properties": "White coloured, soft, round balls with grated coconut & jaggery filling inside",
+      "packaging": "Kozhukotta is primarily packed in polythene trays, which are then packed in duplex and finally packed in master cartons. Eg: 400 gm x 12 bags etc.",
+      "intended_use": "The product is considered ready-to-eat, but is typically heated to hot holding temperatures (135°F (57°C) or above for palatability. Heating is typically conducted using microwave oven. End user may thaw at refrigeration temperatures overnight to reduce cooking time. Sold for foodservice applications.",
+      "potential_abuse": "Some establishments may hold thawed product for longer than the recommended 24 hours.",
+      "intended_consumers": "General Public",
+      "shelf_life": "24 months when stored at or below -18°C",
+      "labelling_instructions": "Keep Frozen, Fresh Frozen, Ready to eat, Store below -18°C, Heating instruction, Allergen Instruction.",
+      "storage_distribution": "Store below -18°C"
+    },
+    {
+      "id": "idiyappam-brown-featured",
+      "name": "IDIYAPPAM BROWN",
+      "image": "products/Idiyappam Brown.jpg",
+      "desc": "Frozen, Cooked, Ready to Eat Idiyappam. Brown coloured, soft, flat, round shaped string hoppers made from brown and white rice flour.",
+      "featured": true,
+      "ingredients": "Brown rice flour, White rice flour, Salt, Water",
+      "product_forms": "Steam Cooked",
+      "physical_properties": "Brown coloured, soft, flat, round shaped string hoppers.",
+      "packaging": "Idiyappam brown is primarily packed in low density polythene(LDPE) bags, which are then packed in duplex and finally packed in master cartons. Eg: 400 gm x 12 bags etc.",
+      "intended_use": "The product is considered ready-to-eat, but is typically heated to hot holding temperatures (135°F (57°C) or above for palatability. Heating is typically conducted using microwave oven. End user may thaw at refrigeration temperatures overnight to reduce cooking time. Sold for foodservice applications.",
+      "potential_abuse": "Some establishments may hold thawed product for longer than the recommended 24 hours.",
+      "intended_consumers": "General Public",
+      "shelf_life": "24 months when stored at or below -18°C",
+      "labelling_instructions": "Keep Frozen, Fresh Frozen, Ready to eat, Store below -18°C, Heating instruction, Allergen Instruction.",
+      "storage_distribution": "Store below -18°C"
+    },
+    {
+      "id": "idiyappam-white-featured",
+      "name": "IDIYAPPAM WHITE",
+      "image": "products/Idiyappam White.jpg",
+      "desc": "Frozen, Cooked, Ready to Eat Idiyappam. White coloured, soft, flat, round shaped string hoppers made from white rice flour.",
+      "featured": true,
+      "ingredients": "White rice flour, Salt, Water",
+      "product_forms": "Steam Cooked",
+      "physical_properties": "White coloured, soft, flat, round shaped string hoppers.",
+      "packaging": "Idiyappam white is primarily packed in low density polythene(LDPE) bags, which are then packed in duplex and finally packed in master cartons. Eg: 400 gm x 12 bags etc.",
+      "intended_use": "The product is considered ready-to-eat, but is typically heated to hot holding temperatures (135°F (57°C) or above for palatability. Heating is typically conducted using microwave oven. End user may thaw at refrigeration temperatures overnight to reduce cooking time. Sold for foodservice applications.",
+      "potential_abuse": "Some establishments may hold thawed product for longer than the recommended 24 hours.",
+      "intended_consumers": "General Public",
+      "shelf_life": "24 months when stored at or below -18°C",
+      "labelling_instructions": "Keep Frozen, Fresh Frozen, Ready to eat, Store below -18°C, Heating instruction, Allergen Instruction.",
+      "storage_distribution": "Store below -18°C"
+    },
+    {
       "id": "9-inch-malabar-porotta",
       "name": "9 inch malabar porotta",
       "image": "products/9 Inch malabar porotta.jpg"
     },
-    { "id": "achappam", "name": "Achappam", "image": "products/Achappam.jpg" },
+    {
+      "id": "achappam",
+      "name": "Achappam",
+      "image": "products/Achappam.jpg"
+    },
     {
       "id": "achinga-mezhukkuvaratti",
       "name": "Achinga Mezhukkuvaratti",
@@ -515,7 +587,11 @@
       "name": "Avalose Unda",
       "image": "products/Avalose Unda.jpg"
     },
-    { "id": "aviyal", "name": "Aviyal", "image": "products/Aviyal.jpg" },
+    {
+      "id": "aviyal",
+      "name": "Aviyal",
+      "image": "products/Aviyal.jpg"
+    },
     {
       "id": "aviyal-mix",
       "name": "Aviyal Mix",
@@ -641,8 +717,16 @@
       "name": "Drumstick",
       "image": "products/Drumstick png.jpg"
     },
-    { "id": "dum-loo", "name": "Dum Aloo", "image": "products/Dum-Aloo.jpg" },
-    { "id": "elayada", "name": "Elayada", "image": "products/Elayada.jpg" },
+    {
+      "id": "dum-loo",
+      "name": "Dum Aloo",
+      "image": "products/Dum-Aloo.jpg"
+    },
+    {
+      "id": "elayada",
+      "name": "Elayada",
+      "image": "products/Elayada.jpg"
+    },
     {
       "id": "gobi-manjurian",
       "name": "Gobi Manjurian",
@@ -693,7 +777,11 @@
       "name": "Idiyappam",
       "image": "products/Idiyappam.jpg"
     },
-    { "id": "idli", "name": "Idli", "image": "products/Idli.jpg" },
+    {
+      "id": "idli",
+      "name": "Idli",
+      "image": "products/Idli.jpg"
+    },
     {
       "id": "indian-gooseberry",
       "name": "Indian Gooseberry",
@@ -749,7 +837,11 @@
       "name": "Jalebi Yellow",
       "image": "products/Jalebi Yellow.jpg"
     },
-    { "id": "jalebi", "name": "Jalebi", "image": "products/Jalebi.jpg" },
+    {
+      "id": "jalebi",
+      "name": "Jalebi",
+      "image": "products/Jalebi.jpg"
+    },
     {
       "id": "kadachakka-theeyal",
       "name": "KADACHAKKA THEEYAL",
@@ -760,13 +852,21 @@
       "name": "KALLAPPAM",
       "image": "products/KALLAPPAM.jpg"
     },
-    { "id": "kaalan", "name": "Kaalan", "image": "products/Kaalan.jpg" },
+    {
+      "id": "kaalan",
+      "name": "Kaalan",
+      "image": "products/Kaalan.jpg"
+    },
     {
       "id": "kaaya-mezhukkupuratty",
       "name": "Kaaya Mezhukkupuratty",
       "image": "products/Kaaya Mezhukkupuratty.jpg"
     },
-    { "id": "karaseva", "name": "Karaseva", "image": "products/Karaseva.jpg" },
+    {
+      "id": "karaseva",
+      "name": "Karaseva",
+      "image": "products/Karaseva.jpg"
+    },
     {
       "id": "kerala-hot-mixture",
       "name": "Kerala Hot Mixture",
@@ -817,7 +917,11 @@
       "name": "Kuzhalappam",
       "image": "products/Kuzhalappam.jpg"
     },
-    { "id": "laddu", "name": "Laddu", "image": "products/Laddu.jpg" },
+    {
+      "id": "laddu",
+      "name": "Laddu",
+      "image": "products/Laddu.jpg"
+    },
     {
       "id": "malai-kofta",
       "name": "Malai Kofta",
@@ -863,13 +967,21 @@
       "name": "Onion porotta",
       "image": "products/Onion porotta.jpg"
     },
-    { "id": "palappam", "name": "Palappam", "image": "products/palappam.jpg" },
+    {
+      "id": "palappam",
+      "name": "Palappam",
+      "image": "products/palappam.jpg"
+    },
     {
       "id": "palak-paneer",
       "name": "Palak Paneer",
       "image": "products/Palak Paneer.jpg"
     },
-    { "id": "pappadam", "name": "Pappadam", "image": "products/Pappadam.jpg" },
+    {
+      "id": "pappadam",
+      "name": "Pappadam",
+      "image": "products/Pappadam.jpg"
+    },
     {
       "id": "pappadavada",
       "name": "Pappadavada",
@@ -885,7 +997,11 @@
       "name": "Parippuvada",
       "image": "products/Parippuvada.jpg"
     },
-    { "id": "pasta", "name": "Pasta", "image": "products/Pasta.jpg" },
+    {
+      "id": "pasta",
+      "name": "Pasta",
+      "image": "products/Pasta.jpg"
+    },
     {
       "id": "pavakka-thoran",
       "name": "Pavakka Thoran",
@@ -931,7 +1047,11 @@
       "name": "Pineapple Laddu",
       "image": "products/Pineapple Laddu.jpg"
     },
-    { "id": "pizza", "name": "Pizza", "image": "products/Pizza.jpg" },
+    {
+      "id": "pizza",
+      "name": "Pizza",
+      "image": "products/Pizza.jpg"
+    },
     {
       "id": "plum-cake",
       "name": "Plum Cake",
@@ -942,7 +1062,11 @@
       "name": "Porotta Roll",
       "image": "products/POROTTA ROLL.jpg"
     },
-    { "id": "porotta", "name": "Porotta", "image": "products/Porotta.jpg" },
+    {
+      "id": "porotta",
+      "name": "Porotta",
+      "image": "products/Porotta.jpg"
+    },
     {
       "id": "puli-inji",
       "name": "Puli Inji",
@@ -988,7 +1112,11 @@
       "name": "Sambar vada",
       "image": "products/Sambar vada.jpg"
     },
-    { "id": "sambar", "name": "Sambar", "image": "products/Sambar.jpg" },
+    {
+      "id": "sambar",
+      "name": "Sambar",
+      "image": "products/Sambar.jpg"
+    },
     {
       "id": "samosa",
       "name": "Samosa Ready to Fry",
@@ -1029,7 +1157,11 @@
       "name": "Spring Roll",
       "image": "products/Spring Roll.jpg"
     },
-    { "id": "sughiyan", "name": "Sughiyan", "image": "products/Sughiyan.jpg" },
+    {
+      "id": "sughiyan",
+      "name": "Sughiyan",
+      "image": "products/Sughiyan.jpg"
+    },
     {
       "id": "sweet-banana-chips",
       "name": "Sweet Banana Chips",
@@ -1085,7 +1217,11 @@
       "name": "Thal thoran",
       "image": "products/Thal thoran.jpg"
     },
-    { "id": "tindora", "name": "Tindora", "image": "products/Tindora .jpg" },
+    {
+      "id": "tindora",
+      "name": "Tindora",
+      "image": "products/Tindora .jpg"
+    },
     {
       "id": "tomato-murukku",
       "name": "Tomato murukku",
@@ -1096,8 +1232,16 @@
       "name": "Tomato Rice",
       "image": "products/Tomato-Rice.jpg"
     },
-    { "id": "upma", "name": "Upma", "image": "products/UPMA.jpg" },
-    { "id": "ullivada", "name": "Ullivada", "image": "products/Ullivada.jpg" },
+    {
+      "id": "upma",
+      "name": "Upma",
+      "image": "products/UPMA.jpg"
+    },
+    {
+      "id": "ullivada",
+      "name": "Ullivada",
+      "image": "products/Ullivada.jpg"
+    },
     {
       "id": "undampori",
       "name": "Undampori",
@@ -1128,11 +1272,53 @@
       "name": "Veg Cutlet",
       "image": "products/Veg Cutlet.jpg"
     },
-    { "id": "veg-puff", "name": "Veg Puff", "image": "products/Veg-Puff.jpg" },
+    {
+      "id": "veg-puff",
+      "name": "Veg Puff",
+      "image": "products/Veg-Puff.jpg"
+    },
     {
       "id": "wheat-porotta",
       "name": "Wheat Porotta",
       "image": "products/Wheat Porotta.jpg"
+    }
+  ],
+  "pageContent": {
+    "home": {
+      "heroTitle": "Premium Kerala Food Manufacturer & Exporter",
+      "heroSubtitle": "Bringing the authentic taste of Kerala to the world.",
+      "welcomeTitle": "Welcome to Ammachies",
+      "welcomeText": "Discover the true essence of Kerala with our premium range of food products."
+    },
+    "about": {
+      "title": "About Us",
+      "story": "AMMACHIES is a brand owner and exporter of premium quality food products with a focus on authentic taste and health. Our products are made from the finest ingredients and are free from preservatives.",
+      "mission": "To provide high quality, authentic food without preservatives."
+    },
+    "contact": {
+      "phone": "+91 73065 55320",
+      "email": "cyan.international@yahoo.com",
+      "address": "Cyan International, 9/403A Arakkunnam P.O, Mulanthuruthy, Ernakulam"
+    }
+  },
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Sarah Johnson",
+      "role": "Customer, USA",
+      "text": "The authentic taste of Kerala right at my doorstep! Ammachies products are absolutely amazing."
+    },
+    {
+      "id": "t2",
+      "name": "Rajesh Kumar",
+      "role": "Restaurant Owner, Dubai",
+      "text": "We use Ammachies products in our restaurant. The quality and authenticity are unmatched."
+    },
+    {
+      "id": "t3",
+      "name": "Emma Wilson",
+      "role": "Food Blogger, UK",
+      "text": "Finally found genuine Kerala food products! The spices and snacks are incredibly fresh."
     }
   ]
 }

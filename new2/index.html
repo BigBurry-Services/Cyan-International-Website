@@ -7,64 +7,220 @@
     <title>Ammachies | Premium Kerala Food Manufacturer & Exporter</title>
     <meta name="description"
         content="Ammachies manufactures and exports authentic Kerala food products including spices, snacks, rice products, and pickles to UAE, USA, UK, and beyond.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.4">
+    <link rel="stylesheet" href="testimonials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Preload critical hero assets -->
-    <link rel="preload" href="banner.jpg" as="image">
-    <link rel="prefetch" href="banner1.jpg" as="image">
-    <link rel="prefetch" href="banner2.png" as="image">
+    <link rel="preload" href="header.png" as="image">
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body>
     <header>
-        <nav>
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="contact-details">
+                    <span><i class="fas fa-phone-alt"></i> +91 73065 55320</span>
+                    <span><i class="fas fa-envelope"></i> cyan.international@yahoo.com</span>
+                </div>
+                <!-- <div class="social-links"> ... </div> Optional, maybe keep minimal -->
+            </div>
+        </div>
+
+        <div class="main-header">
             <div class="logo">
                 <a href="index.html"><img src="logo.png" alt="Ammachies Logo"></a>
             </div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li class="dropdown">
-                    <a href="#categories">Categories</a>
-                    <ul class="dropdown-content" id="cat-dropdown">
-                        <!-- Dynamic Content -->
+
+            <nav class="header-nav">
+                <div class="browse-categories-wrapper">
+                    <button class="browse-btn" id="browse-cats-btn">
+                        <i class="fas fa-th-large"></i>
+                        Categories
+                        <i class="fas fa-chevron-down ml-auto"></i>
+                    </button>
+                    <!-- Move default dropdown content here or link it -->
+                    <ul class="dropdown-content mega-menu-container" id="cat-dropdown-header">
+                        <!-- Dynamic Content Will Be Loaded Here -->
                     </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#products">Products</a>
-                    <ul class="dropdown-content" id="prod-dropdown">
-                        <!-- Dynamic Content -->
-                    </ul>
-                </li>
-                <li><a href="#locations">Export</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+                </div>
+
+
+
+                <ul class="desktop-menu new-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-search-container">
+                <input type="text" id="header-search-input" placeholder="Search products..." autocomplete="off">
+                <i class="fas fa-search search-icon"></i>
+                <div id="search-results-dropdown" class="search-results-dropdown"></div>
+            </div>
+
+            <button class="mobile-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
+
+    <div class="mobile-sidebar">
+        <button class="close-sidebar" aria-label="Close Menu">&times;</button>
+        <div class="sidebar-content">
+            <a href="index.html" class="sidebar-logo"><img src="logo.png" alt="Ammachies"></a>
+            <ul class="mobile-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
     <main>
         <section class="hero">
-            <h1 class="reveal-text">AMMACHIES</h1>
-            <p class="subtitle">KERALA FOOD MANUFACTURING & EXPORTING</p>
-        </section>
+            <div class="hero-content">
+                <h1 class="hero-title" id="home-heroTitle">PREMIUM KERALA FOOD MANUFACTURER & EXPORTER</h1>
+                <p class="hero-subtitle" id="home-heroSubtitle">Bringing the authentic taste of Kerala to the world.</p>
 
-        <section id="categories" class="content-section">
-            <h2 class="section-title">OUR CATEGORIES</h2>
-            <div class="category-grid" id="category-grid">
-                <!-- Dynamic Content -->
-                <div class="loading-placeholder">Loading Categories...</div>
+            </div>
+            <div class="hero-product-display">
+                <img id="hero-product-img" src="hero_images/1.png" alt="Featured Product">
             </div>
         </section>
+
+        <section id="welcome" class="content-section" style="padding-bottom: 2rem;">
+            <div class="welcome-container text-center">
+                <span class="sub-heading" id="home-welcomeTitle">Welcome to Ammachies</span>
+                <h2 class="section-title">Bringing Purity Home</h2>
+                <div class="text-block" style="max-width: 800px; margin: 0 auto 3rem;">
+                    <p id="home-welcomeText">Experience the authentic soul of Kerala cuisine. Ammachies bridges the gap
+                        between traditional
+                        kitchens and global tables, delivering the nostalgic taste of home with uncompromising quality.
+                    </p>
+                </div>
+
+                <div class="welcome-features-grid">
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Authentic Taste</h3>
+                        <p>Recipes passed down through generations for true Kerala flavor.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Farm Fresh</h3>
+                        <p>Sourced directly from trusted farms to ensure peak freshness.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>No Preservatives</h3>
+                        <p>100% natural ingredients with absolutely no added chemicals.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>Global Exports</h3>
+                        <p>Trusted quality meeting international standards worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section Removed (Moved to about.html) -->
+
+
+
+
+        <section id="quality" class="content-section">
+            <h2 class="section-title slide-in-right">UNCOMPROMISING QUALITY</h2>
+            <div class="text-block slide-in-right text-delay-1">
+                <p>At Ammachies, quality isn't just a department; it's our core philosophy. Our manufacturing facilities
+                    are
+                    equipped with advanced processing technology that preserves the nutritional value and natural
+                    flavors
+                    of our products. We follow a strict 'Farm-to-Fork' traceability model, ensuring that every
+                    ingredient
+                    is vetted for purity and freshness.</p>
+
+            </div>
+        </section>
+
+        <section id="locations" class="content-section">
+            <h2 class="section-title">EXPORTING TO</h2>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <img src="USA.jpg" alt="USA">
+                    <span>USA</span>
+                </div>
+                <div class="location-card">
+                    <img src="canada.jpg" alt="Canada">
+                    <span>CANADA</span>
+                </div>
+                <div class="location-card">
+                    <img src="irland.jpg" alt="Ireland">
+                    <span>IRELAND</span>
+                </div>
+                <div class="location-card">
+                    <img src="germany.jpg" alt="Germany">
+                    <span>GERMANY</span>
+                </div>
+                <div class="location-card">
+                    <img src="australia.jpg" alt="Australia">
+                    <span>AUSTRALIA</span>
+                </div>
+                <div class="location-card">
+                    <img src="malta.avif" alt="Malta">
+                    <span>MALTA</span>
+                </div>
+                <div class="location-card">
+                    <img src="uk.jpg" alt="UK">
+                    <span>UK</span>
+                </div>
+                <div class="location-card">
+                    <img src="new zealand.webp" alt="New Zealand">
+                    <span>NEW ZEALAND</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="green-banner-section">
+            <div class="banner-content text-center">
+                <h2>WHY CHOOSE AMMACHIES?</h2>
+                <p>Ammachies is a premier food manufacturing company dedicated to manufacturing and exporting authentic
+                    Kerala food products to different parts of the world. Experience the pure taste of tradition with
+                    every bite.</p>
+            </div>
+        </section>
+
+
+
+
+
+
 
         <section class="promo-banners">
             <div class="promo-grid">
                 <div class="promo-item">
-                    <div class="promo-image">
+                    <div class="promo-image slide-in-left">
                         <img src="pb1.png" alt="Traditional Snacks" loading="lazy">
                     </div>
-                    <div class="promo-content">
+                    <div class="promo-content slide-in-right">
                         <h2>TRADITIONAL SNACKS</h2>
                         <p>Ammachies Products offers a delightful range of authentic, homemade-style traditional
                             snacks, prepared with care using quality ingredients and packed fresh to deliver true,
@@ -72,10 +228,10 @@
                     </div>
                 </div>
                 <div class="promo-item">
-                    <div class="promo-image">
+                    <div class="promo-image slide-in-left">
                         <img src="pb2.png" alt="Wholesome Powders" loading="lazy">
                     </div>
-                    <div class="promo-content">
+                    <div class="promo-content slide-in-right">
                         <h2>WHOLESOME POWDERS</h2>
                         <p>Ammachies Products presents wholesome, traditional food powders made from carefully
                             selected grains, offering purity, nutrition, and the comforting taste of home in every meal.
@@ -85,145 +241,75 @@
             </div>
         </section>
 
-        <section id="products" class="content-section">
-            <h2 class="section-title">FEATURED PRODUCTS</h2>
-            <div class="product-grid" id="product-grid">
-                <!-- Dynamic Content -->
-                <div class="loading-placeholder">Loading Products...</div>
+
+
+
+
+
+
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid" id="testimonials-container">
+                <!-- Dynamic Content Loaded Here -->
             </div>
         </section>
 
-        <section id="about" class="content-section">
-            <h2 class="section-title">THE TASTE OF HOMELAND</h2>
-            <div class="text-block">
-                <p>Rooted in the rich culinary heritage of Kerala, Ammachies stands as a beacon of authenticity in food
-                    manufacturing. We bridge the gap between traditional kitchens and global tables. Kerala's cuisine is
-                    a
-                    symphony of flavors, where the heat of black pepper meets the coolness of coconut milk, and the
-                    earthy
-                    aroma of curry leaves dances with the tang of tamarind. Our mission is to preserve these
-                    millennia-old
-                    traditions, ensuring that every Keralite living abroad and every food enthusiast globally can
-                    experience
-                    the soul-satisfying taste of a true Malayali meal.</p>
-                <p>From the spice-scented hills of Wayanad to the bustling fish markets of Kochi, we source only the
-                    finest
-                    ingredients. Our processes honor the "Ammachi" (Grandmother) style of cooking—patient, precise, and
-                    poured over with love—transformed through state-of-the-art technology to meet the highest global
-                    food safety standards.</p>
-            </div>
-        </section>
-
-        <section id="quality" class="content-section">
-            <h2 class="section-title">UNCOMPROMISING QUALITY</h2>
-            <div class="text-block">
-                <p>At Ammachies, quality isn't just a department; it's our core philosophy. Our manufacturing facilities
-                    are
-                    equipped with advanced processing technology that preserves the nutritional value and natural
-                    flavors
-                    of our products. We follow a strict 'Farm-to-Fork' traceability model, ensuring that every
-                    ingredient
-                    is vetted for purity and freshness.</p>
-                <p>Our Quality Assurance team performs multi-stage testing, from raw material inspection to final
-                    packaging,
-                    ensuring compliance with international standards such as HACCP and ISO. We use premium, food-grade
-                    packaging materials that maintain the 'just-made' freshness of our snacks, masalas, and
-                    ready-to-cook
-                    mixes, even after crossing oceans.</p>
-            </div>
-        </section>
-
-        <section id="locations" class="content-section">
-            <h2 class="section-title">EXPORT LOCATIONS</h2>
-            <div class="location-grid">
-                <div class="location-item">
-                    <img src="USA.jpg" alt="USA" loading="lazy">
-                    <span>USA</span>
-                </div>
-                <div class="location-item">
-                    <img src="canada.jpg" alt="Canada" loading="lazy">
-                    <span>CANADA</span>
-                </div>
-                <div class="location-item">
-                    <img src="irland.jpg" alt="Ireland" loading="lazy">
-                    <span>IRELAND</span>
-                </div>
-                <div class="location-item">
-                    <img src="germany.jpg" alt="Germany" loading="lazy">
-                    <span>GERMANY</span>
-                </div>
-                <div class="location-item">
-                    <img src="australia.jpg" alt="Australia" loading="lazy">
-                    <span>AUSTRALIA</span>
-                </div>
-                <div class="location-item">
-                    <img src="malta.avif" alt="Malta" loading="lazy">
-                    <span>MALTA</span>
-                </div>
-                <div class="location-item">
-                    <img src="uk.jpg" alt="UK" loading="lazy">
-                    <span>UK</span>
-                </div>
-                <div class="location-item">
-                    <img src="new zealand.webp" alt="New Zealand" loading="lazy">
-                    <span>NEW ZEALAND</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="content-section">
-            <h2 class="section-title">GET IN TOUCH</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <p class="large-text">HELLO@AMMACHIES.COM</p>
-                    <p class="metadata">KERALA, INDIA</p>
-                </div>
-                <form class="inquiry-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="YOUR EMAIL OR PHONE NUMBER" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="YOUR REQUIREMENT" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="send-btn">SEND INQUIRY</button>
-                </form>
-            </div>
-        </section>
     </main>
 
     <footer class="main-footer">
+        <div class="certification-strip">
+            <img src="certificates/fssi.webp" alt="FSSAI" class="cert-logo">
+            <img src="certificates/spices_board.webp" alt="Spices Board" class="cert-logo">
+            <img src="certificates/iso.webp" alt="ISO" class="cert-logo">
+            <img src="certificates/agmark.webp" alt="Agmark" class="cert-logo">
+            <img src="certificates/haccap.webp" alt="HACCP" class="cert-logo">
+        </div>
+
         <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo">
-                    <a href="index.html"><img src="logo.png" alt="Ammachies Logo"></a>
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Ammachies Logo">
                 </div>
-                <p>Authentic Kerala Food Manufacturing & Exporting</p>
+                <p>At Ammachies, we believe in bringing purity home. Our products are natural and preservative-free —
+                    delivering honesty, flavor, and nourishment in every bite. Taste the goodness trusted by families,
+                    made for healthier kitchens and happier lives.</p>
             </div>
-            <div class="footer-info">
-                <div class="info-block">
-                    <h4>ADDRESS</h4>
-                    <p>Building No. 12/450, food Park,<br>Industrial Area, Kerala, India - 682001</p>
+
+            <div class="footer-center">
+                <h3>THE PURE WAY OF LIFE</h3>
+
+                <div class="footer-links-row">
+                    <a href="#categories">Categories <i class="fas fa-chevron-down"></i></a>
+                    <a href="#quick-links">Quick Links <i class="fas fa-chevron-down"></i></a>
+                    <a href="#policy">Terms & Policy <i class="fas fa-chevron-down"></i></a>
                 </div>
-                <div class="info-block">
-                    <h4>CONTACT</h4>
-                    <p>Phone: +91 98765 43210<br>Office: +91 484 2345678<br>Email: hello@ammachies.com</p>
+            </div>
+
+            <div class="footer-right">
+                <p class="address">Cyan International<br>9/403A Arakkunnam P.O<br>Mulanthuruthy, Ernakulam<br>
+                <div class="contact-details-footer">
+                    <p><i class="far fa-envelope"></i> cyan.international@yahoo.com</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 73065 55320</p>
                 </div>
-                <div class="info-block">
-                    <h4>LINKS</h4>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#products">Our Products</a></li>
-                        <li><a href="#locations">Exporting To</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
+
         <div class="footer-bottom">
             <p>&copy; 2026 AMMACHIES. ALL RIGHTS RESERVED.</p>
         </div>
+
+        <div class="footer-bottom-visual">
+            <!-- Background image of hills/mountains handled in CSS -->
+        </div>
     </footer>
 
+    <script src="products-data.js"></script>
     <script src="script.js"></script>
+
+
 </body>
 
 </html>

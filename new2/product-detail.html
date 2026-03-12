@@ -5,76 +5,187 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details | Ammachies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
+        .sub-page-hero {
+            height: 300px;
+            background-image: linear-gradient(rgba(0, 26, 64, 0.7), rgba(0, 26, 64, 0.7)), url('banner1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 100px;
+        }
+
+        .sub-page-hero .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white !important;
+        }
+
         .detail-container {
-            padding: 10rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
+            gap: 5rem;
+            align-items: start;
         }
 
-        .detail-image img {
+        .detail-image-wrap {
+            background: #fdfdfd;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 150px;
+        }
+
+        .detail-image-wrap img {
             width: 100%;
             aspect-ratio: 1;
-            object-fit: cover;
-            border: 1px solid #eee;
-            border-radius: 15px;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .detail-image-wrap:hover img {
+            transform: scale(1.05);
         }
 
         .detail-content h1 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .detail-content .description {
-            font-size: 0.8rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #154d42;
+            font-weight: 800;
+            line-height: 1.2;
         }
 
         .info-section {
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out forwards;
         }
 
         .info-section h3 {
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
             margin-bottom: 1rem;
-            opacity: 0.5;
+            color: #154d42;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-left: 4px solid #154d42;
+            padding-left: 1rem;
         }
 
         .info-section p {
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+            padding-left: 1.25rem;
         }
 
         .back-btn {
-            display: inline-block;
-            margin-bottom: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
             text-decoration: none;
-            color: #000;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-bottom: 2px solid #000;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
-        @media (max-width: 768px) {
+        .back-btn:hover {
+            color: #154d42;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
             .detail-container {
                 grid-template-columns: 1fr;
-                padding: 6rem 2rem;
+                gap: 3rem;
+                padding: 3rem 1.5rem;
+            }
+
+            .sub-page-hero {
+                height: 200px;
+                margin-top: 70px;
+            }
+
+            .sub-page-hero .hero-title {
+                font-size: 2rem;
             }
 
             .detail-content h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .detail-image-wrap {
+                position: static;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .detail-container {
+                padding: 1.5rem 1rem;
+                /* Compact padding */
+                gap: 1.5rem;
+                /* Reduced gap */
+            }
+
+            .sub-page-hero {
+                height: 180px;
+                /* Shorter hero */
+                margin-top: 60px;
+            }
+
+            .sub-page-hero .hero-title {
+                font-size: 1.6rem;
+                /* Smaller hero text */
+                letter-spacing: 1px;
+            }
+
+            .detail-content h1 {
+                font-size: 1.6rem;
+                /* Smaller product title */
+                margin-bottom: 1rem;
+            }
+
+            .detail-image-wrap {
+                padding: 1rem;
+                /* Compact image wrapper */
+            }
+
+            .info-section {
+                margin-bottom: 2rem;
+            }
+
+            .info-section h3 {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -82,41 +193,87 @@
 
 <body>
     <header>
-        <nav>
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="contact-details">
+                    <span><i class="fas fa-phone-alt"></i> +91 73065 55320</span>
+                    <span><i class="fas fa-envelope"></i> cyan.international@yahoo.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header">
             <div class="logo">
                 <a href="index.html"><img src="logo.png" alt="Ammachies Logo"></a>
             </div>
-            <ul>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#products">Products</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
+
+            <nav class="header-nav">
+                <div class="browse-categories-wrapper">
+                    <button class="browse-btn" id="browse-cats-btn">
+                        <i class="fas fa-th-large"></i>
+                        Categories
+                        <i class="fas fa-chevron-down ml-auto"></i>
+                    </button>
+                    <ul class="dropdown-content mega-menu-container" id="cat-dropdown-header"></ul>
+                </div>
+
+                <ul class="desktop-menu new-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-search-container">
+                <input type="text" id="header-search-input" placeholder="Search products..." autocomplete="off">
+                <i class="fas fa-search search-icon"></i>
+                <div id="search-results-dropdown" class="search-results-dropdown"></div>
+            </div>
+
+            <button class="mobile-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
+    <div class="mobile-sidebar">
+        <button class="close-sidebar" aria-label="Close Menu">&times;</button>
+        <div class="sidebar-content">
+            <a href="index.html" class="sidebar-logo"><img src="logo.png" alt="Ammachies"></a>
+            <ul class="mobile-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
     <main>
+        <section class="sub-page-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">PRODUCT DETAILS</h1>
+            </div>
+        </section>
+
         <div class="detail-container">
             <div class="detail-image">
-                <img id="product-img" src="" alt="Product Image">
+                <div class="detail-image-wrap">
+                    <img id="product-img" src="" alt="Product Image">
+                </div>
             </div>
             <div class="detail-content">
-                <a href="index.html#products" class="back-btn">← Back to Products</a>
+                <a href="products.html" class="back-btn"><i class="fas fa-arrow-left"></i> BACK TO ALL PRODUCTS</a>
                 <h1 id="product-name">PRODUCT NAME</h1>
 
                 <div class="info-section">
                     <h3>DESCRIPTION</h3>
-                    <p id="product-desc" class="description">Long description goes here...</p>
+                    <p id="product-desc">Authentic Kerala taste in every bite.</p>
                 </div>
 
-                <div class="info-section">
-                    <h3>INGREDIENTS</h3>
-                    <p id="product-ingredients">Ingredient list goes here...</p>
-                </div>
-
-                <div class="info-section">
-                    <h3>SHELF LIFE</h3>
-                    <p id="product-shelf">6 Months</p>
-                </div>
+                <div id="dynamic-sections"></div>
             </div>
         </div>
     </main>
@@ -127,38 +284,64 @@
         </div>
     </footer>
 
+    <script src="products-data.js"></script>
+    <script src="script.js"></script>
     <script>
         async function loadProduct() {
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
 
             if (!productId) {
-                window.location.href = 'index.html#products';
+                window.location.href = 'products.html';
                 return;
             }
 
-            try {
-                const response = await fetch('data.json');
-                const data = await response.json();
-                const product = data.products.find(p => p.id === productId);
+            let product = null;
 
-                if (product) {
-                    document.title = (product.name || 'Product Details') + ' | Ammachies';
-                    document.getElementById('product-name').textContent = (product.name || 'Unknown Product').toUpperCase();
+            // Priority 1: Use window.siteData if available
+            if (typeof window.siteData !== 'undefined') {
+                product = window.siteData.products.find(p => p.id === productId);
+            }
 
-                    const img = document.getElementById('product-img');
-                    img.src = product.image || 'placeholder.png'; // Fallback if image missing
-                    img.alt = product.name;
-
-                    document.getElementById('product-desc').textContent = product.desc || 'Premium quality Kerala food product. Processed and packed with care to ensure authentic taste and freshness.';
-                    document.getElementById('product-ingredients').textContent = product.ingredients || 'Natural Ingredients.';
-                    document.getElementById('product-shelf').textContent = product.shelf || 'Best before 6 months from packaging (Frozen).';
-                } else {
-                    document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Product Not Found</h1><a href="index.html">Go Home</a></div>';
+            // Priority 2: Fetch data.json if not found in siteData
+            if (!product) {
+                try {
+                    const response = await fetch('data.json');
+                    const data = await response.json();
+                    product = data.products.find(p => p.id === productId);
+                } catch (e) {
+                    console.error('Local fetch failed', e);
                 }
-            } catch (error) {
-                console.error('Error loading product:', error);
-                document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Error Loading Product</h1><p>Please try again later.</p></div>';
+            }
+
+            if (product) {
+                document.title = product.name + ' | Ammachies';
+                document.getElementById('product-name').textContent = product.name.toUpperCase();
+                document.getElementById('product-img').src = product.image;
+                document.getElementById('product-desc').textContent = product.desc;
+
+                const dynamicContainer = document.getElementById('dynamic-sections');
+                const sections = [
+                    { key: 'ingredients', label: 'INGREDIENTS' },
+                    { key: 'product_forms', label: 'PRODUCT FORM' },
+                    { key: 'physical_properties', label: 'PHYSICAL PROPERTIES' },
+                    { key: 'packaging', label: 'PACKAGING' },
+                    { key: 'shelf_life', label: 'SHELF LIFE' },
+                    { key: 'intended_use', label: 'INTENDED USE' },
+                    { key: 'storage_distribution', label: 'STORAGE & DISTRIBUTION' }
+                ];
+
+                sections.forEach(s => {
+                    if (product[s.key]) {
+                        const div = document.createElement('div');
+                        div.className = 'info-section';
+                        div.innerHTML = `<h3>${s.label}</h3><p>${product[s.key]}</p>`;
+                        dynamicContainer.appendChild(div);
+                    }
+                });
+            } else {
+                document.querySelector('.detail-container').innerHTML =
+                    '<div style="grid-column: 1/-1; text-align: center; padding: 5rem;"><h1>Product Not Found</h1><a href="products.html" class="back-btn">Return to Products</a></div>';
             }
         }
 

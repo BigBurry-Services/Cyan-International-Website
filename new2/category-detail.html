@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category Details | Ammachies</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
@@ -94,17 +94,66 @@
 
 <body>
     <header>
-        <nav>
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="contact-details">
+                    <span><i class="fas fa-phone-alt"></i> +91 73065 55320</span>
+                    <span><i class="fas fa-envelope"></i> cyan.international@yahoo.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header">
             <div class="logo">
                 <a href="index.html"><img src="logo.png" alt="Ammachies Logo"></a>
             </div>
-            <ul>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#categories">Categories</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
+
+            <nav class="header-nav">
+                <div class="browse-categories-wrapper">
+                    <button class="browse-btn" id="browse-cats-btn">
+                        <i class="fas fa-th-large"></i>
+                        Categories
+                        <i class="fas fa-chevron-down ml-auto"></i>
+                    </button>
+                    <ul class="dropdown-content mega-menu-container" id="cat-dropdown-header">
+                        <!-- Dynamic Content Will Be Loaded Here -->
+                    </ul>
+                </div>
+
+
+
+                <ul class="desktop-menu new-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-search-container">
+                <input type="text" id="header-search-input" placeholder="Search products..." autocomplete="off">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <button class="mobile-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
+
+    <div class="mobile-sidebar">
+        <button class="close-sidebar" aria-label="Close Menu">&times;</button>
+        <div class="sidebar-content">
+            <a href="index.html" class="sidebar-logo"><img src="logo.png" alt="Ammachies"></a>
+            <ul class="mobile-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
 
     <main>
         <div class="category-detail-container">
@@ -130,46 +179,52 @@
         </div>
     </footer>
 
+
     <script>
-        <script>
-            async function loadCategory() {
+        async function loadCategory() {
             const urlParams = new URLSearchParams(window.location.search);
             const catId = urlParams.get('id');
 
             if (!catId) {
                 window.location.href = 'index.html#categories';
-            return;
+                return;
             }
 
             try {
-                const response = await fetch('data.json');
-            const data = await response.json();
+                let data;
+                if (typeof siteData !== 'undefined') {
+                    data = siteData;
+                } else {
+                    const response = await fetch('data.json');
+                    data = await response.json();
+                }
+
                 const category = data.categories.find(c => c.id === catId);
 
-            if (category) {
-                document.title = (category.name || 'Category') + ' | Ammachies';
-            document.getElementById('cat-name').textContent = category.name;
-            document.getElementById('cat-desc').textContent = category.desc || 'Explore our wide range of authentic Kerala products in this category.';
+                if (category) {
+                    document.title = (category.name || 'Category') + ' | Ammachies';
+                    document.getElementById('cat-name').textContent = category.name;
+                    document.getElementById('cat-desc').textContent = category.desc || 'Explore our wide range of authentic Kerala products in this category.';
 
-            const listContainer = document.getElementById('product-list');
-            listContainer.innerHTML = ''; // Clear existing
+                    const listContainer = document.getElementById('product-list');
+                    listContainer.innerHTML = ''; // Clear existing
 
                     // Use the 'products' array if available (rich details), else fall back to 'items' (string list)
                     if (category.products && category.products.length > 0) {
-                category.products.forEach(p => {
-                    const item = document.createElement('div');
-                    item.className = 'product-item-detailed';
-                    item.innerHTML = `
+                        category.products.forEach(p => {
+                            const item = document.createElement('div');
+                            item.className = 'product-item-detailed';
+                            item.innerHTML = `
                                 <h2>${p.name}</h2>
                                 <p>${p.desc}</p>
                             `;
-                    listContainer.appendChild(item);
-                });
+                            listContainer.appendChild(item);
+                        });
                     } else if (category.items && category.items.length > 0) {
                         // Fallback for categories with only simple item lists
-                         const item = document.createElement('div');
-            item.className = 'product-item-detailed';
-            item.innerHTML = `
+                        const item = document.createElement('div');
+                        item.className = 'product-item-detailed';
+                        item.innerHTML = `
             <h2>Products in this category:</h2>
             <ul style="margin-top: 10px; padding-left: 20px;">
                 ${category.items.map(i => `<li>${i}</li>`).join('')}
@@ -180,16 +235,17 @@
                         listContainer.innerHTML = '<p>No products found in this category.</p>';
                     }
                 } else {
-                     document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Category Not Found</h1><a href="index.html">Go Home</a></div>';
+                    document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Category Not Found</h1><a href="index.html">Go Home</a></div>';
                 }
             } catch (error) {
                 console.error('Error loading category:', error);
-                 document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Error Loading Category</h1><p>Please try again later.</p></div>';
+                document.body.innerHTML = '<div style="text-align:center; padding: 5rem;"><h1>Error Loading Category</h1><p>Please try again later.</p></div>';
             }
         }
 
         document.addEventListener('DOMContentLoaded', loadCategory);
     </script>
+    <script src="products-data.js"></script>
 </body>
 
 </html>

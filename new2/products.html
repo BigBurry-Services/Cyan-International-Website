@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | Ammachies</title>
+    <meta name="description"
+        content="Browse our complete range of authentic Kerala food products including spices, snacks, rice products, and pickles.">
+    <link rel="stylesheet" href="style.css?v=1.4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        .sub-page-hero {
+            height: 350px;
+            background-image: linear-gradient(rgba(0, 26, 64, 0.7), rgba(0, 26, 64, 0.7)), url('banner1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 100px;
+            /* Space for fixed header */
+        }
+
+        .sub-page-hero .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .sub-page-hero .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .sub-page-hero .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .sub-page-hero {
+                height: 250px;
+                margin-top: 70px;
+            }
+
+            .sub-page-hero .hero-title {
+                font-size: 2rem;
+            }
+
+            .sub-page-hero .hero-subtitle {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-right">
+                <div class="contact-details">
+                    <span><i class="fas fa-phone-alt"></i> +91 73065 55320</span>
+                    <span><i class="fas fa-envelope"></i> cyan.international@yahoo.com</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="Ammachies Logo"></a>
+            </div>
+
+            <nav class="header-nav">
+                <div class="browse-categories-wrapper">
+                    <button class="browse-btn" id="browse-cats-btn">
+                        <i class="fas fa-th-large"></i>
+                        Categories
+                        <i class="fas fa-chevron-down ml-auto"></i>
+                    </button>
+                    <ul class="dropdown-content mega-menu-container" id="cat-dropdown-header">
+                        <!-- Dynamic Content Will Be Loaded Here -->
+                    </ul>
+                </div>
+
+
+
+                <ul class="desktop-menu new-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-search-container">
+                <input type="text" id="header-search-input" placeholder="Search products..." autocomplete="off">
+                <i class="fas fa-search search-icon"></i>
+                <div id="search-results-dropdown" class="search-results-dropdown"></div>
+            </div>
+
+            <button class="mobile-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-sidebar">
+        <button class="close-sidebar" aria-label="Close Menu">&times;</button>
+        <div class="sidebar-content">
+            <a href="index.html" class="sidebar-logo"><img src="logo.png" alt="Ammachies"></a>
+            <ul class="mobile-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main>
+        <section class="sub-page-hero">
+            <div class="hero-content">
+                <h1 class="hero-title">OUR PREMIUM PRODUCTS</h1>
+                <p class="hero-subtitle">Authentic flavors from the heart of Kerala, delivered to your doorstep.</p>
+            </div>
+        </section>
+        <section class="content-section" style="padding-top: 3rem;">
+            <h2 class="section-title">All Products</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Dynamic Content -->
+                <div class="loading-placeholder">Loading Products...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Ammachies Logo">
+                </div>
+                <p>At Ammachies, we believe in bringing purity home. Our products are natural and preservative-free —
+                    delivering honesty, flavor, and nourishment in every bite.</p>
+            </div>
+
+            <div class="footer-center">
+                <h3>THE PURE WAY OF LIFE</h3>
+                <div class="footer-links-row">
+                    <a href="index.html#categories">Categories</a>
+                    <a href="index.html#quick-links">Quick Links</a>
+                    <a href="index.html#policy">Terms & Policy</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <p class="address">Cyan International<br>9/403A Arakkunnam P.O<br>Mulanthuruthy, Ernakulam<br>
+                <div class="contact-details-footer">
+                    <p><i class="far fa-envelope"></i> cyan.international@yahoo.com</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 73065 55320</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AMMACHIES. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

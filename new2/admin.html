@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammachies Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <p>Access the content management system</p>
+            <input type="password" id="admin-password" placeholder="Enter Password">
+            <button onclick="checkLogin()">Login</button>
+            <p id="login-error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <div id="admin-dashboard" style="display: none;">
+        <div class="admin-wrapper">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <h2>CMS</h2>
+                </div>
+                <ul class="nav-links">
+                    <li class="active" onclick="showSection('products')"><i class="fas fa-box"></i> Products</li>
+                    <li onclick="showSection('home')"><i class="fas fa-home"></i> Home Page</li>
+                    <li onclick="showSection('about')"><i class="fas fa-info-circle"></i> About Page</li>
+                    <li onclick="showSection('contact')"><i class="fas fa-address-book"></i> Contact Info</li>
+                    <li onclick="showSection('testimonials')"><i class="fas fa-comment-alt"></i> Testimonials</li>
+                </ul>
+                <div class="sidebar-footer">
+                    <button onclick="downloadData()" class="btn-download"><i class="fas fa-download"></i> Save &
+                        Download</button>
+                    <button onclick="logout()" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Products Section -->
+                <div id="section-products" class="content-section active">
+                    <div class="content-controls">
+                        <h1>Product Management</h1>
+                        <div class="controls-right">
+                            <input type="text" id="product-search" placeholder="Search products..."
+                                onkeyup="filterProducts()">
+                            <button onclick="openModal('add')" class="btn-add"><i class="fas fa-plus"></i> Add
+                                Product</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="products-table">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Featured</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Products loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Home Page Section -->
+                <div id="section-home" class="content-section">
+                    <h1>Manage Home Page</h1>
+                    <div class="form-card">
+                        <div class="form-group">
+                            <label>Hero Title</label>
+                            <input type="text" id="home-heroTitle">
+                        </div>
+                        <div class="form-group">
+                            <label>Hero Subtitle</label>
+                            <input type="text" id="home-heroSubtitle">
+                        </div>
+                        <div class="form-group">
+                            <label>Welcome Section Title</label>
+                            <input type="text" id="home-welcomeTitle">
+                        </div>
+                        <div class="form-group">
+                            <label>Welcome Text</label>
+                            <textarea id="home-welcomeText" rows="4"></textarea>
+                        </div>
+                        <button onclick="savePageContent('home')" class="btn-save">Save Home Content</button>
+                    </div>
+                </div>
+
+                <!-- About Page Section -->
+                <div id="section-about" class="content-section">
+                    <h1>Manage About Page</h1>
+                    <div class="form-card">
+                        <div class="form-group">
+                            <label>Page Title</label>
+                            <input type="text" id="about-title">
+                        </div>
+                        <div class="form-group">
+                            <label>Our Story</label>
+                            <textarea id="about-story" rows="6"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Mission Statement</label>
+                            <textarea id="about-mission" rows="3"></textarea>
+                        </div>
+                        <button onclick="savePageContent('about')" class="btn-save">Save About Content</button>
+                    </div>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div id="section-contact" class="content-section">
+                    <h1>Manage Contact Info</h1>
+                    <div class="form-card">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" id="contact-phone">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="text" id="contact-email">
+                        </div>
+                        <div class="form-group">
+                            <label>Physical Address</label>
+                            <textarea id="contact-address" rows="3"></textarea>
+                        </div>
+                        <button onclick="savePageContent('contact')" class="btn-save">Save Contact Info</button>
+                    </div>
+                </div>
+                <!-- Testimonials Section -->
+                <div id="section-testimonials" class="content-section" style="display: none;">
+                    <div class="content-controls">
+                        <h1>Manage Testimonials</h1>
+                        <button onclick="openTestimonialModal('add')" class="btn-add"><i class="fas fa-plus"></i> Add
+                            Testimonial</button>
+                    </div>
+                    <div class="table-container">
+                        <table id="testimonials-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Role/Location</th>
+                                    <th>Feedback</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Testimonials loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Add Product</h2>
+            <form id="product-form" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" id="edit-product-id">
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="p-category" required>
+                        <!-- Categories loaded dynamically -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input type="text" id="p-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Image Path (e.g., products/image.jpg)</label>
+                    <input type="text" id="p-image" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="p-desc" rows="3"></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="p-featured">
+                    <label for="p-featured">Featured on Homepage</label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" onclick="closeModal()" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-save">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="products-data.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+
+</html>

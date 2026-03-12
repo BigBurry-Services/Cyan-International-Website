@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Loading Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔍 Data Loading Diagnostic Test</h1>
+    <div id="results"></div>
+
+    <script src="products-data.js"></script>
+    <script>
+        const results = document.getElementById('results');
+
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = message;
+            results.appendChild(div);
+        }
+
+        // Test 1: Check if siteData exists
+        if (typeof window.siteData !== 'undefined') {
+            addResult('✅ SUCCESS: window.siteData is loaded', 'success');
+        } else {
+            addResult('❌ ERROR: window.siteData is NOT defined', 'error');
+        }
+
+        // Test 2: Check categories
+        if (window.siteData && window.siteData.categories) {
+            addResult(`✅ SUCCESS: Found ${window.siteData.categories.length} categories`, 'success');
+        } else {
+            addResult('❌ ERROR: No categories found', 'error');
+        }
+
+        // Test 3: Check products
+        if (window.siteData && window.siteData.products) {
+            addResult(`✅ SUCCESS: Found ${window.siteData.products.length} products`, 'success');
+        } else {
+            addResult('❌ ERROR: No products found', 'error');
+        }
+
+        // Test 4: Check testimonials
+        if (window.siteData && window.siteData.testimonials) {
+            addResult(`✅ SUCCESS: Found ${window.siteData.testimonials.length} testimonials`, 'success');
+        } else {
+            addResult('❌ ERROR: No testimonials found', 'error');
+        }
+
+        // Test 5: Check pageContent
+        if (window.siteData && window.siteData.pageContent) {
+            addResult('✅ SUCCESS: pageContent exists', 'success');
+        } else {
+            addResult('❌ ERROR: No pageContent found', 'error');
+        }
+
+        // Display sample data
+        if (window.siteData) {
+            const pre = document.createElement('pre');
+            pre.textContent = JSON.stringify({
+                totalCategories: window.siteData.categories?.length || 0,
+                totalProducts: window.siteData.products?.length || 0,
+                totalTestimonials: window.siteData.testimonials?.length || 0,
+                hasPageContent: !!window.siteData.pageContent,
+                sampleProduct: window.siteData.products?.[0] || null,
+                sampleTestimonial: window.siteData.testimonials?.[0] || null
+            }, null, 2);
+            results.appendChild(pre);
+        }
+    </script>
+</body>
+
+</html>
